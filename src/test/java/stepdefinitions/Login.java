@@ -7,21 +7,27 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageObjects.LoginPages;
+import utilities.TestBase;
 
 public class Login {
     private Hooks hooks;
     private WebDriver driver;
     private LoginPages loginPage;
+    private TestBase testBase;
+
     
-    public Login(Hooks hooks) {
+    public Login(Hooks hooks,TestBase testBase) {
         this.hooks = hooks;
         this.driver = hooks.getDriver();
         this.loginPage = new LoginPages(driver);
+        this.testBase = testBase;
+
     }
 
     @Given("Admin is in Home Page")
     public void admin_is_in_home_page() {
-        driver.get("https://lms-frontend-api-hackathon-apr-326235f3973d.herokuapp.com/");
+    	 String url = testBase.getUrl();
+         driver.get(url);
     }
 
     @When("Admin enter valid credentials username as {string} and password {string} and clicks login button")
