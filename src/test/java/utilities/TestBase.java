@@ -1,7 +1,10 @@
 package utilities;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -10,13 +13,22 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class TestBase {
     public WebDriver driver;
    
-    private String url = "https://lms-frontend-api-hackathon-apr-326235f3973d.herokuapp.com/";
+   // private String url = "https://lms-frontend-api-hackathon-apr-326235f3973d.herokuapp.com/";
+    
+   
 
-    public String getUrl() {
+   /* public String getUrl() {
         return url;
-    }
+    }*/
 
     public WebDriver WebDriverManager() throws IOException {
+    	
+    	 FileInputStream fis = new FileInputStream(System.getProperty("user.dir")+"//src//test//resources//global.properties");
+    		Properties prop = new Properties();
+    		prop.load(fis);
+    		String url = prop.getProperty("Url");
+    		
+    		
         if (driver == null) {
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--headless");

@@ -1,5 +1,7 @@
 package stepdefinitions;
 
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
 
 import hooks.Hooks;
@@ -8,26 +10,36 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageObjects.LoginPages;
 import utilities.TestBase;
+import utilities.TestContextSetup;
 
 public class Login {
     private Hooks hooks;
-    private WebDriver driver;
+    public static WebDriver driver;
     private LoginPages loginPage;
     private TestBase testBase;
+    TestContextSetup testContextSetup;
 
     
-    public Login(Hooks hooks,TestBase testBase) {
+   /* public Login(Hooks hooks,TestBase testBase) {
         this.hooks = hooks;
         this.driver = hooks.getDriver();
         this.loginPage = new LoginPages(driver);
         this.testBase = testBase;
 
+    }*/
+    
+    public Login(TestContextSetup testContextSetup) {
+    	this.testContextSetup = testContextSetup;
+    	this.loginPage = new LoginPages(driver);
+    	this.loginPage=testContextSetup.pageObjectManager.getlogin();
     }
 
     @Given("Admin is in Home Page")
-    public void admin_is_in_home_page() {
-    	 String url = testBase.getUrl();
-         driver.get(url);
+    public void admin_is_in_home_page() throws IOException {
+    	testContextSetup.testBase.WebDriverManager();
+    	
+    	// String url = testBase.getUrl();
+         //driver.get(url);
     }
 
     @When("Admin enter valid credentials username as {string} and password {string} and clicks login button")
