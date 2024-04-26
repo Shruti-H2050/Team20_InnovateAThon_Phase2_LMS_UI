@@ -5,8 +5,9 @@ import org.openqa.selenium.WebDriver;
 public class PageObjectManager {
 
 	public WebDriver driver;
-	public AddNewProgramPages addNewProgramPages;
 	public LoginPages loginPage;
+	public AddNewProgramPages addNewProgramPages;
+	public ManageProgramValidationPages manageProgram;
 
 	public PageObjectManager(WebDriver driver) {
 		this.driver = driver;
@@ -22,4 +23,10 @@ public class PageObjectManager {
 		
 		return addNewProgramPages;
 }
+	
+	public ManageProgramValidationPages manageProgram() {
+		manageProgram = new ManageProgramValidationPages(driver);
+		return manageProgram;
+		
+	}
 }
