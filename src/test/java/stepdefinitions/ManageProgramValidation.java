@@ -31,7 +31,7 @@ public class ManageProgramValidation {
 	public void admin_is_on_dashboard_after_login() {
 		Assert.assertTrue(manageProgram.getTitle().contains("LMS"));
 		System.out.println("On the manage pgm dashboard");		
-		//Assert.assertTrue(landingPage.getTitle().contains("GreenKart"));
+		
 	}
 
 	@When("Admin clicks {string} on the navigation bar")
@@ -84,27 +84,34 @@ public class ManageProgramValidation {
 
 	@Then("Admin should see data table on the Manage Program Page with following column headers \\(Program Name, Program Description, Program Status, Edit,Delete)")
 	public void admin_should_see_data_table_on_the_manage_program_page_with_following_column_headers_program_name_program_description_program_status_edit_delete() {
+	    Assert.assertTrue(manageProgram.getpgmNameColumnHeader());
+	    Assert.assertTrue(manageProgram.getpgmDescColumnnHeader());
+	    Assert.assertTrue(manageProgram.getpgmStatusColumnHeader());
+	    Assert.assertTrue(manageProgram.getpgmEditDeleteColumnHeader());
 	    
 	}
 
 	@Then("Admin should see the sort arrow icon beside to each column header except Edit and Delete")
 	public void admin_should_see_the_sort_arrow_icon_beside_to_each_column_header_except_edit_and_delete() {
-	    
+	    manageProgram.checkPgmNameSortIcon();
+	    manageProgram.checkPgmDescSortIson();
+	    manageProgram.checkPgmStatusSortIcon();
 	}
 
 	@Then("Admin should see check box on the left side in all rows of the data table")
 	public void admin_should_see_check_box_on_the_left_side_in_all_rows_of_the_data_table() {
-	    
+	    Assert.assertTrue(manageProgram.checkboxPresent());
 	}
 
 	@Then("Admin should see the Edit and Delete buttons on each row of the data table")
 	public void admin_should_see_the_edit_and_delete_buttons_on_each_row_of_the_data_table() {
-	    
+		 Assert.assertTrue(manageProgram.checkEditBtnPresent());
+		 Assert.assertTrue(manageProgram.checkDeleteBtnPresent());
 	}
 
 	@Then("Admin should see Search bar with text as {string}")
 	public void admin_should_see_search_bar_with_text_as(String string) {
-	    
+	    manageProgram.checkSearchBar();
 	}
 
 

@@ -39,27 +39,27 @@ Feature: Manage Program Validation
     Given Admin is on dashboard after login
     When Admin clicks "Program" on the navigation bar
     Then Admin should see the number of records (rows of data in the table) displayed on the page are 5
-
+@checkTableColumnHeaders
   Scenario: Verify data table on the Program page
     Given Admin is on dashboard after login
     When Admin clicks "Program" on the navigation bar
     Then Admin should see data table on the Manage Program Page with following column headers (Program Name, Program Description, Program Status, Edit,Delete)
-
+@checkSortArrowIcon
   Scenario: Verify Sort arrow icon on the data table
     Given Admin is on dashboard after login
     When Admin clicks "Program" on the navigation bar
     Then Admin should see the sort arrow icon beside to each column header except Edit and Delete
-
+@checkCheckBoxPresent
   Scenario: Verify Check box on the data table
     Given Admin is on dashboard after login
     When Admin clicks "Program" on the navigation bar
     Then Admin should see check box on the left side in all rows of the data table
-
+@editAndDeleteButton
   Scenario: Verify Edit and Delete buttons
     Given Admin is on dashboard after login
     When Admin clicks "Program" on the navigation bar
     Then Admin should see the Edit and Delete buttons on each row of the data table
-
+@searchBar
   Scenario: Verify Search bar on the Program page
     Given Admin is on dashboard after login
     When Admin clicks "Program" on the navigation bar
