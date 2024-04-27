@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(features="src/test/resources/features",
 glue="stepdefinitions",
 monochrome=true,
-tags="@validateDeleteButtonOnTopLeft",
+tags="@managePgmTag1",
 plugin= {"html:target/cucumber.html",
 		"json:target/cucumber.json",
 		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",

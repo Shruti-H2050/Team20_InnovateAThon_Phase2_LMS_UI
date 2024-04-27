@@ -8,6 +8,7 @@ public class PageObjectManager {
 	public LoginPages loginPage;
 	public AddNewProgramPages addNewProgramPages;
 	public ManageProgramValidationPages manageProgram;
+	public AddNewProgramPages addNewProgram;
 
 	public PageObjectManager(WebDriver driver) {
 		this.driver = driver;
@@ -28,5 +29,10 @@ public class PageObjectManager {
 		manageProgram = new ManageProgramValidationPages(driver);
 		return manageProgram;
 		
+	}
+	
+	public AddNewProgramPages addNewProgram() {
+		 addNewProgram = new AddNewProgramPages(driver);
+		 return addNewProgram;
 	}
 }
