@@ -1,5 +1,4 @@
 Feature: Home Page Verification
-
   @validcredentials
   Scenario: Validate login with valid credentials
     Given Admin is in Home Page
@@ -89,7 +88,7 @@ Feature: Home Page Verification
     Given Admin launch the browser
     When Admin gives the correct LMS portal URL
     Then Admin should see user in gray color
-
+@negativelogin
   Scenario Outline: Validate login with different combinations of invalid credentials
     Given Admin is on the Login Page
     When Admin enters invalid credentials with username <username> and password <password> and clicks the login button
