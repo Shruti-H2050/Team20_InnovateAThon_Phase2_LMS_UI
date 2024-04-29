@@ -18,11 +18,11 @@ public class Hooks {
 		this.driver = testBase.WebDriverManager();
 	}
 
-	public WebDriver getDriver() {
+	/*public WebDriver getDriver() {
 		return driver;
-	}
+	}*/
 
-	@After
+//	@After
 	public void afterScenario(Scenario scenario) {
 		if (scenario.isFailed()) {
 			takeScreenshot(scenario);

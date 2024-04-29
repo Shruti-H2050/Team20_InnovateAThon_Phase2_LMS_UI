@@ -1,27 +1,17 @@
 package cucumberOptions;
+import org.junit.runner.RunWith;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
 
-import org.testng.annotations.DataProvider;
+@RunWith(Cucumber.class)
+@CucumberOptions(
+    features = "src/test/resources/features/HomePageVerification.feature", // Path to your feature files
+    glue = "stepdefinitions", // Package where step definitions are located
+    tags = "@validcredentials", // Tags to filter scenarios
+    plugin = { 
+        "html:target/cucumber-reports/html", // Generate HTML report
+        "json:target/cucumber-reports/json/report.json", // Generate JSON report
+        "rerun:target/failed_scenarios.txt"}) // Rerun failed scenarios
 
-import io.cucumber.testng.AbstractTestNGCucumberTests;
-import io.cucumber.testng.CucumberOptions;
-
-@CucumberOptions(features="src/test/resources/features/Login",
-glue="stepDefinitions",
-monochrome=true,
-tags="@PlaceOrder or @OffersPage",
-plugin= {"html:target/cucumber.html",
-		"json:target/cucumber.json",
-		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
-		"rerun:target/failed_scenarios.txt"})  //captures failed secnarios in a txt file
-
-
-public class TestRunner extends AbstractTestNGCucumberTests{
-	@Override
-	@DataProvider(parallel=true)
-	
-	public Object[][] scenarios()
-	{
-		return super.scenarios();
-	}
-	
+public class TestRunner {
 }
