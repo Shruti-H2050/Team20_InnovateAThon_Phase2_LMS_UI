@@ -16,7 +16,7 @@ public class Login {
     private Hooks hooks;
     public static WebDriver driver;
     private LoginPages loginPage;
-    private TestBase testBase;
+    public TestBase testBase;
     TestContextSetup testContextSetup;
 
     
@@ -32,6 +32,7 @@ public class Login {
     	this.testContextSetup = testContextSetup;
     	this.loginPage = new LoginPages(driver);
     	this.loginPage=testContextSetup.pageObjectManager.getlogin();
+    	this.testBase=testContextSetup.testBase;
     }
 
     @Given("Admin is in Home Page")
@@ -42,10 +43,13 @@ public class Login {
          //driver.get(url);
     }
 
-    @When("Admin enter valid credentials username as {string} and password {string} and clicks login button")
-    public void admin_enter_valid_credentials_username_as_and_password_and_clicks_login_button(String username, String password) {
-        loginPage.logindetails(username, password);
-        loginPage.clickloginButton();
+    @When("Admin enter valid credentials username and password and clicks login button")
+    public void admin_enter_valid_credentials_username_and_password_and_clicks_login_button() {
+        //loginPage.logindetails(testContextSetup.testBase.getUsername(), testContextSetup.testBase.getPassword());
+    	 String username = testBase.getUsername();
+         String password = testBase.getPassword();
+         loginPage.logindetails(username, password);
+         loginPage.clickloginButton();
     }
 
     @Then("Admin should land on dashboard page")

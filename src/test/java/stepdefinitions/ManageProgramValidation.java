@@ -25,6 +25,7 @@ public class ManageProgramValidation {
 	    	this.testContextSetup = testContextSetup;
 	    	this.manageProgram = new ManageProgramValidationPages(driver);
 	    	this.manageProgram = testContextSetup.pageObjectManager.manageProgram();
+	    	this.testBase=testBase;
 	    }
 
 	@Given("Admin is on dashboard after login")

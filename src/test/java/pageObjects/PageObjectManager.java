@@ -2,13 +2,17 @@ package pageObjects;
 
 import org.openqa.selenium.WebDriver;
 
+import utilities.TestContextSetup;
+
 public class PageObjectManager {
 
 	public WebDriver driver;
+	public TestContextSetup testContextSetup;
 	public LoginPages loginPage;
 	public AddNewProgramPages addNewProgramPages;
 	public ManageProgramValidationPages manageProgram;
 	public AddNewProgramPages addNewProgram;
+	public AddNewProgramDetailsPages addNewProgramDetails;
 
 	public PageObjectManager(WebDriver driver) {
 		this.driver = driver;
@@ -34,5 +38,10 @@ public class PageObjectManager {
 	public AddNewProgramPages addNewProgram() {
 		 addNewProgram = new AddNewProgramPages(driver);
 		 return addNewProgram;
+	}
+	
+	public AddNewProgramDetailsPages addNewProgramDetails() {
+		addNewProgramDetails = new AddNewProgramDetailsPages(driver);
+		return addNewProgramDetails;
 	}
 }

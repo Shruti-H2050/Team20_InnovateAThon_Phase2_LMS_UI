@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(features="src/test/resources/features",
 glue="stepdefinitions",
 monochrome=true,
-tags="@managePgmTag1",
+tags="@addPgmDetailsTag8",
 plugin= {"html:target/cucumber.html",
 		"json:target/cucumber.json",
 		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
@@ -17,7 +17,7 @@ plugin= {"html:target/cucumber.html",
 
 public class TestRunner extends AbstractTestNGCucumberTests{
 	@Override
-	@DataProvider(parallel=true)
+	@DataProvider(parallel=false)
 	
 	public Object[][] scenarios()
 	{

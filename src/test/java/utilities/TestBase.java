@@ -12,14 +12,21 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class TestBase {
     public WebDriver driver;
+    private String username;
+    private String password;
    
    // private String url = "https://lms-frontend-api-hackathon-apr-326235f3973d.herokuapp.com/";
     
-   
-
    /* public String getUrl() {
         return url;
     }*/
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 
     public WebDriver WebDriverManager() throws IOException {
     	
@@ -27,6 +34,8 @@ public class TestBase {
     		Properties prop = new Properties();
     		prop.load(fis);
     		String url = prop.getProperty("Url");
+    		 username = prop.getProperty("username");
+    		 password = prop.getProperty("password");
     		if(driver==null) 
     		{
     			if(prop.getProperty("browser").equalsIgnoreCase("chrome"));
