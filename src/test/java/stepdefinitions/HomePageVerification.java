@@ -9,6 +9,7 @@ import java.util.Properties;
 
 import org.junit.Assert;
 import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
 
 import pageObjects.HomePagePages;
 
@@ -17,33 +18,31 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import utilities.TestBase;
+import utilities.TestContextSetup;
 
-public class HomePageVerification extends TestBase {
-	private HomePagePages m_homepage;
-	private String invalidUrl;
+public class HomePageVerification {
+	private final HomePagePages m_homepage;
+	private final TestBase testbase;
+	private final WebDriver driver;
 	private String url;
+	private String invalidUrl;
 
-	public HomePageVerification() throws IOException {
-        super(); // Call the constructor of the superclass TestBase
-		System.out.println("HomePageVerification called ........................");
-		if (driver != null) {
-		  m_homepage = new HomePagePages(driver);
-		}
-		else {
-			System.out.println("##### Driver is null");
-		}
+	public HomePageVerification(TestContextSetup testContextSetup) throws IOException {
+		this.driver = testContextSetup.driver;
+		m_homepage = testContextSetup.pageObjectManager.gethomepage();
+		testbase = testContextSetup.testBase;
 	}
-	
+
 	@Given("Admin is in Home Page")
 	public void admin_is_in_home_page() throws IOException {
-		url = getUrl();
+		url = testbase.getUrl();
 	}
 
 	@When("Admin enter valid credentials username and password and clicks login button")
 	public void admin_enter_valid_credentials_username_and_password_and_clicks_login_button() {
 
-		String username = getUsername();
-		String password = getPassword();
+		String username = testbase.getUsername();
+		String password = testbase.getPassword();
 		m_homepage.setLoginDetails(username, password);
 
 		m_homepage.clickloginButton();
@@ -51,13 +50,12 @@ public class HomePageVerification extends TestBase {
 
 	@Then("Admin should land on dashboard page")
 	public void admin_should_land_on_dashboard_page() {
-	    Assert.assertTrue("Dashboard page is not displayed", m_homepage.isDashboardPageDisplayed());
+		Assert.assertTrue("Dashboard page is not displayed", m_homepage.isDashboardPageDisplayed());
 
 	}
 
 	@Given("Admin launch the browser")
 	public void admin_launch_the_browser() throws IOException {
-		
 
 	}
 
@@ -96,8 +94,8 @@ public class HomePageVerification extends TestBase {
 	public void admin_should_see_correct_spellings_in_all_fields() {
 		String expectedUsername = "sdetorganizers@gmail.com";
 		String expectedPassword = "UIHackathon@02";
-		String actualUsername = getUsername().trim();
-		String actualPassword = getPassword().trim();
+		String actualUsername = testbase.getUsername().trim();
+		String actualPassword = testbase.getPassword().trim();
 
 		Assert.assertEquals("Incorrect username", expectedUsername, actualUsername);
 		Assert.assertEquals("Incorrect password", expectedPassword, actualPassword);
@@ -166,7 +164,7 @@ public class HomePageVerification extends TestBase {
 		int buttonX = buttonLocation.getX();
 		int buttonY = buttonLocation.getY();
 
-		int tolerance = 150; 
+		int tolerance = 150;
 		boolean isCentered = Math.abs(buttonX - windowCenterX) <= tolerance
 				&& Math.abs(buttonY - windowCenterY) <= tolerance;
 
@@ -175,8 +173,8 @@ public class HomePageVerification extends TestBase {
 
 	@Given("Admin is on the Login Page")
 	public void admin_is_on_the_login_page() throws IOException {
-		driver = WebDriverManager();
-		url = getUrl();
+		testbase.WebDriverManager();
+		url = testbase.getUrl();
 	}
 
 	@When("Admin enters invalid credentials with username {string} and password {string} and clicks the login button")
@@ -190,7 +188,8 @@ public class HomePageVerification extends TestBase {
 	public void an_error_message_should_be_displayed(String expectedErrorMessage) {
 		m_homepage.clickloginButton();
 		List<String> expectedErrorMessages = Arrays.asList(expectedErrorMessage.split(";"));
-		assertTrue(m_homepage.isErrorMessageDisplayed(expectedErrorMessages), "Error message not displayed as expected");
+		assertTrue(m_homepage.isErrorMessageDisplayed(expectedErrorMessages),
+				"Error message not displayed as expected");
 
 	}
 

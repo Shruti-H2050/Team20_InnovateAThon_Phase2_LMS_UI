@@ -16,8 +16,11 @@ public class TestContextSetup {
 	//public GenericUtils genricUtils;
 	
 	public TestContextSetup() throws IOException {
-		testBase = new TestBase();
-		pageObjectManager = new PageObjectManager(testBase.WebDriverManager());
-	//	genricUtils = new GenericUtils(testBase.WebDriverManager());
-}
+		 testBase = new TestBase();
+	        driver = testBase.WebDriverManager();
+	        pageObjectManager = new PageObjectManager(driver);
+
+	
+    }
+    
 }

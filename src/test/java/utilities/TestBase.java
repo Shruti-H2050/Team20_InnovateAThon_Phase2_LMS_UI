@@ -81,7 +81,7 @@ public class TestBase {
 					// "C:\\Users\\ajith\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
 	
 					options.addArguments("--headless"); // Removing headless mode
-					// WebDriverManager.chromedriver().setup();
+					//WebDriverManager.chromedriver().setup();
 					driver = new ChromeDriver(options);
 				} else {
 					//throw new IllegalArgumentException("Unsupported browser: " + browser);
@@ -93,7 +93,7 @@ public class TestBase {
 				}
 			}
 		} catch( Exception e) {
-			System.out.println("###################################" + e.getMessage());
+			//System.out.println("###################################" + e.getMessage());
 		} //finally {
 			//quitDriver();
 		//}
@@ -109,10 +109,7 @@ public class TestBase {
 	}
 	@Override 
 	protected void finalize() throws Throwable {
-	    // TODO Auto-generated method stub
-	    // do some crazy stuff here
-		//quitDriver();
-		System.out.println("finalize called ........................");
+	    
 		
 	}
 }

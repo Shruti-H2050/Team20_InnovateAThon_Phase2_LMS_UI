@@ -7,25 +7,35 @@ import io.cucumber.java.en.When;
 import pageObjects.DashboardPages;
 import pageObjects.HomePagePages;
 import utilities.TestBase;
+import utilities.TestContextSetup;
+
 import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
+
 import java.time.Duration;
 
-public class Dashboard extends TestBase {
+public class Dashboard {
 	private DashboardPages m_dashboardpage;
 	private HomePagePages m_homepage;
+	private final TestBase testbase;
+	private final WebDriver driver;
+
 	private String url;
 
-	public Dashboard() throws IOException {
-		m_dashboardpage = new DashboardPages(driver);
-		m_homepage = new HomePagePages(driver);
+	public Dashboard(TestContextSetup testContextSetup) throws IOException {
+		this.driver = testContextSetup.driver;
+		m_homepage = testContextSetup.pageObjectManager.gethomepage();
+
+		m_dashboardpage = testContextSetup.pageObjectManager.getdashboard();
+		testbase = testContextSetup.testBase;
 	}
 
 	@When("Admin enters valid credentials and clicks login button")
 	public void admin_enters_valid_credentials_and_clicks_login_button() {
-		url = getUrl();
+		url = testbase.getUrl();
 
-		String username = getUsername();
-		String password = getPassword();
+		String username = testbase.getUsername();
+		String password = testbase.getPassword();
 		m_homepage.setLoginDetails(username, password);
 
 		m_homepage.clickloginButton();
@@ -34,10 +44,9 @@ public class Dashboard extends TestBase {
 	@Then("Admin should see {string} as header")
 	public void admin_should_see_as_header(String expectedHeaderText) {
 		String actualHeaderText = m_dashboardpage.headerverification();
-	    Assert.assertEquals("Header text does not match the expected text", expectedHeaderText, actualHeaderText);
-	    System.out.println("Header text matches: " + expectedHeaderText);
+		Assert.assertEquals("Header text does not match the expected text", expectedHeaderText, actualHeaderText);
+		System.out.println("Header text matches: " + expectedHeaderText);
 	}
-	
 
 	@Then("Maximum navigation time in milliseconds defaults to {int} seconds")
 	public void maximum_navigation_time_in_milliseconds_defaults_to_seconds(Integer seconds) {
@@ -66,10 +75,10 @@ public class Dashboard extends TestBase {
 	@Then("Admin should see correct spelling in navigation bar text")
 	public void admin_should_see_correct_spelling_in_navigation_bar_text() {
 		String navigationText = m_dashboardpage.navigationbarspelltest();
-	    String expectedText = "LMS - Learning Management System | Program | Batch | User | Logout";
-	    navigationText = navigationText.replace("\n", " | ");
-	    Assert.assertEquals("Navigation bar text does not match expected spelling", expectedText, navigationText);
-	
+		String expectedText = "LMS - Learning Management System | Program | Batch | User | Logout";
+		navigationText = navigationText.replace("\n", " | ");
+		Assert.assertEquals("Navigation bar text does not match expected spelling", expectedText, navigationText);
+
 	}
 
 	@Then("Admin should see correct spelling and space in LMS title")
@@ -81,39 +90,39 @@ public class Dashboard extends TestBase {
 	@Then("Admin should see the navigation bar text on the top right side")
 	public void admin_should_see_the_navigation_bar_text_on_the_top_right_side() {
 		Point navigationBarLocation = m_dashboardpage.getNavigationbarLocation();
-	    
-	    int minX = 500;
-	    	    int maxY = 100;  
-	    	    Assert.assertTrue("Navigation bar text is not positioned correctly",
-	            navigationBarLocation.getX() > minX && navigationBarLocation.getY() < maxY);
+
+		int minX = 500;
+		int maxY = 100;
+		Assert.assertTrue("Navigation bar text is not positioned correctly",
+				navigationBarLocation.getX() > minX && navigationBarLocation.getY() < maxY);
 	}
 
 	@Then("Admin should see {string} in the 1st place")
 	public void admin_should_see_in_the_1st_place(String expectedItem) {
-		  String navigationItem = m_dashboardpage.getFirstNavigationBarItemsLocation();
-		    Assert.assertNotNull("Navigation bar item is null", navigationItem);
-		    Assert.assertEquals("First navigation bar item is not as expected", expectedItem, navigationItem);
+		String navigationItem = m_dashboardpage.getFirstNavigationBarItemsLocation();
+		Assert.assertNotNull("Navigation bar item is null", navigationItem);
+		Assert.assertEquals("First navigation bar item is not as expected", expectedItem, navigationItem);
 	}
 
 	@Then("Admin should see {string} in the 2nd place")
 	public void admin_should_see_in_the_2nd_place(String expectedItem) {
-		String navigationItemsbatch= m_dashboardpage.getSecondNavigationBarItemsLocation();
+		String navigationItemsbatch = m_dashboardpage.getSecondNavigationBarItemsLocation();
 		Assert.assertNotNull("Navigation bar item is null", navigationItemsbatch);
-	    Assert.assertEquals("First navigation bar item is not as expected", expectedItem, navigationItemsbatch);
+		Assert.assertEquals("First navigation bar item is not as expected", expectedItem, navigationItemsbatch);
 	}
 
 	@Then("Admin should see {string} in the 3rd place")
 	public void admin_should_see_in_the_3rd_place(String expectedItem) {
-		String navigationItemsuser= m_dashboardpage.getthirdNavigationBarItemsLocation();
+		String navigationItemsuser = m_dashboardpage.getthirdNavigationBarItemsLocation();
 		Assert.assertNotNull("Navigation bar item is null", navigationItemsuser);
-	    Assert.assertEquals("First navigation bar item is not as expected", expectedItem, navigationItemsuser);
+		Assert.assertEquals("First navigation bar item is not as expected", expectedItem, navigationItemsuser);
 	}
 
 	@Then("Admin should see {string} in the 4th place")
 	public void admin_should_see_in_the_4th_place(String expectedItem) {
-		String navigationItemsuser= m_dashboardpage.getfourthNavigationBarItemsLocation();
+		String navigationItemsuser = m_dashboardpage.getfourthNavigationBarItemsLocation();
 		Assert.assertNotNull("Navigation bar item is null", navigationItemsuser);
-	    Assert.assertEquals("First navigation bar item is not as expected", expectedItem, navigationItemsuser);
+		Assert.assertEquals("First navigation bar item is not as expected", expectedItem, navigationItemsuser);
 	}
 
 }
