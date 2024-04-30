@@ -121,7 +121,7 @@ public class AddNewProgramDetails {
 		addNewProgram.addPgmSuccessful();
 		addNewProgram.selectStatusRadioBtn();
 		addNewProgram.clickSaveBtnn();
-		Thread.sleep(2000);
+		//Thread.sleep(2000);
 	}
 
 	@Then("Admin gets a message {string} alert and able to see the new program added in the data table")
