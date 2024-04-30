@@ -1,6 +1,5 @@
 package pageObjects;
 import static org.testng.Assert.assertEquals;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
@@ -30,27 +29,6 @@ By alertmsg = By.xpath("//div[@class='ng-trigger ng-trigger-animation ng-tns-c13
 public DeleteBatchPages(WebDriver driver) 
 {
     this.driver = driver;
-}
-public void logged_lms_portal() throws IOException 
-{ 
-	FileInputStream fis = new FileInputStream("C:\\Users\\siva1\\git\\Team20_InnovateAThon_Phase2_LMS_UI\\src\\test\\resources\\global.properties");
-	Properties prop = new Properties();
-	prop.load(fis);
-    WebElement usernameField = driver.findElement(username1);
-    usernameField.sendKeys(prop.getProperty("Username"));
-    WebElement passwordField = driver.findElement(password1);
-    passwordField.sendKeys(prop.getProperty("Password"));
-    WebElement loginButton = driver.findElement(loginButton1);
-    loginButton.click();
-}
-public void admin_on_dashboard_page(String string) 
-{
-	System.out.println("Admin should land on dashboard page after Login.");
-	String actual=driver.findElement(batchbtn).getText();
-	String expected=string;
-	Assert.assertEquals(actual,expected);
-	System.out.println("Batch Button is displayed,enabled and interactable");
-	driver.findElement(batchbtn).click();
 }
 public void the_delete_icon_enabled() 
 {
@@ -127,4 +105,3 @@ public void batch_not_deleted()
 	System.out.println("No batch is deleted");	
 }
 }
-

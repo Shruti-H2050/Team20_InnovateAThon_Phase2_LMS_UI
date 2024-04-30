@@ -21,13 +21,8 @@ public BatchPageValidation(TestContextSetup testContextSetup)
    	this.batchPageValidationPages = new BatchPageValidationPages(driver);
    	this.batchPageValidationPages = testContextSetup.pageObjectManager.batchpageval();
 }
-@Given("Logged on the LMS portal...")
-public void logged_on_the_lms_portal() throws IOException 
-{
-	batchPageValidationPages.logged_lms_portal();
-}
 @Given("Admin is on dashboard page after Login.")
-public void admin_is_on_dashboard_page_after_login() 
+public void admin_is_on_dashboard_page_after_login()
 {
 	 System.out.println("Admin should land on dashboard page after Login.");
 }

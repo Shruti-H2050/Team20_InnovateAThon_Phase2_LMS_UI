@@ -27,18 +27,6 @@ public BatchPageValidationPages(WebDriver driver)
 	{
 	    this.driver = driver;
 	}
-	public void logged_lms_portal() throws IOException 
-	{ 
-		FileInputStream fis = new FileInputStream("C:\\Users\\siva1\\git\\Team20_InnovateAThon_Phase2_LMS_UI\\src\\test\\resources\\global.properties");
-		Properties prop = new Properties();
-		prop.load(fis);
-        WebElement usernameField = driver.findElement(username1);
-        usernameField.sendKeys(prop.getProperty("Username"));
-        WebElement passwordField = driver.findElement(password1);
-        passwordField.sendKeys(prop.getProperty("Password"));
-        WebElement loginButton = driver.findElement(loginButton1);
-        loginButton.click();
-    }
 	public void admin_clicks_batchbutton(String string) 
 	{
 		String actual=driver.findElement(batchbtn).getText();

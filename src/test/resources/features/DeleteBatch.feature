@@ -1,8 +1,10 @@
 Feature: Delete Batch Validation
 
   Background: 
-    Given Logged on the LMS portal
-    When Admin is on dashboard page after Login and Admin clicks "Batch" from navigation bar
+    Given Admin is in Home Page
+    When Admin enter valid credentials username and password and clicks login button
+    Then Admin should land on dashboard page
+    And Admin clicks "Batch" from navigation bar.
 
   @DB_001
   Scenario: Validate row level delete icon

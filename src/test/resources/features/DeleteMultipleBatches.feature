@@ -1,8 +1,10 @@
 Feature: Delete Multiple Batches Validation
 
-Background:  
- Given Logged on the LMS portal..
- When Admin is on dashboard page after Login and admin clicks "Batch" from navigation bar.
+Background: 
+    Given Admin is in Home Page
+    When Admin enter valid credentials username and password and clicks login button
+    Then Admin should land on dashboard page
+    And Admin clicks "Batch" from navigation bar.
 
   @DMB_001
   Scenario: Validate the delete icon below the header 

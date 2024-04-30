@@ -20,16 +20,6 @@ public DeleteBatch(TestContextSetup testContextSetup)
 	   	this.deleteBatchPages = new DeleteBatchPages(driver);
 	   	this.deleteBatchPages = testContextSetup.pageObjectManager.deletebatch();
 }	
-@Given("Logged on the LMS portal")
-public void logged_on_the_lms_portal() throws IOException, InterruptedException 
-{
-	deleteBatchPages.logged_lms_portal(); 
-}
-@When("Admin is on dashboard page after Login and Admin clicks {string} from navigation bar")
-public void admin_is_on_dashboard_page_after_login_and_admin_clicks_from_navigation_bar(String string) 
-{
-	deleteBatchPages.admin_on_dashboard_page(string);
-}
 @Given("The delete icon on row level in data table is enabled..")
 public void the_delete_icon_on_row_level_in_data_table_is_enabled() 
 {

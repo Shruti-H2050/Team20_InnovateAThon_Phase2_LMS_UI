@@ -21,16 +21,7 @@ public class DeleteMultipleBatches {
    	this.deleteMultipleBatchesPages = new DeleteMultipleBatchesPages(driver);
    	this.deleteMultipleBatchesPages = testContextSetup.pageObjectManager.deletemultiplebatches();
     }	
-	@Given("Logged on the LMS portal..")
-	public void logged_on_the_lms_portal() throws IOException 
-	{
-		deleteMultipleBatchesPages.logged_lms_portal();	
-	}
-	@When("Admin is on dashboard page after Login and admin clicks {string} from navigation bar.")
-	public void admin_is_on_dashboard_page_after_login_and_admin_clicks_from_navigation_bar(String string)
-	{
-		deleteMultipleBatchesPages.admin_on_dashboard_page(string);
-	}
+	
 	@Given("None of the checkboxes in data table are selected")
 	public void none_of_the_checkboxes_in_data_table_are_selected() 
 	{

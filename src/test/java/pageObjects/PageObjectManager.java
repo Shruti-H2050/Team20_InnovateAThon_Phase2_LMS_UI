@@ -6,12 +6,17 @@ public class PageObjectManager {
 	public AddNewBatchPages addNewBatchPages;
 	public BatchPageValidationPages batchPageValidationPages;
 	public EditBatchPages editBatchPages;
+	public LoginPages loginPage;
 	public DeleteBatchPages deleteBatchPages;
 	public DeleteMultipleBatchesPages deleteMultipleBatchesPages;
 	public PageObjectManager(WebDriver driver)
 {
 		this.driver = driver;
 }
+	public LoginPages getlogin() {
+		loginPage=new LoginPages(driver);
+		return loginPage;	
+	}
 	public BatchPageValidationPages batchpageval() {
 		batchPageValidationPages = new BatchPageValidationPages(driver);
 		return batchPageValidationPages;		
