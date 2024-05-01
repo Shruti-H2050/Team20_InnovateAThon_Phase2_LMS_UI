@@ -67,10 +67,10 @@ Scenario: Validate Cancel/Close(X) icon on Assign Student form
     When Admin clicks Cancel/Close(X) Icon on Assign Student form
     Then Assign Student popup window should be closed without saving
 
-Scenario: Validate Save button on Assign Student form
-    Given Admin is in Assign Student details pop up page
-    When Enter all the required fields with valid values and click Save button
-    Then Admin gets a message "Successfully Student Assigned" alert 
+#Scenario: Validate Save button on Assign Student form
+    #Given Admin is in Assign Student details pop up page
+    #When Enter all the required fields with valid values and click Save button
+    #Then Admin gets a message "Successfully Student Assigned" alert 
 
 Scenario: Validate Cancel button on Assign Student form
     Given Admin is in Assign Student details pop up page

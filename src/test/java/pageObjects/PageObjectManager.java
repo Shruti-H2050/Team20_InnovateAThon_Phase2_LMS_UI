@@ -70,7 +70,7 @@ public class PageObjectManager {
 }
 	
 	public AssignStudentPages assignStudentPage() {
-		deleteMultipleBatchesPages = new DeleteMultipleBatchesPages(driver);
+		assignStudentPage = new AssignStudentPages(driver);
 		return assignStudentPage;		
 }
 	

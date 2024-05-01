@@ -19,7 +19,6 @@ public class HomePagePages {
 	private WebDriver driver;
 
 	private By usernameField = By.xpath("//input[@id='username']");
-
 	private By passwordField = By.xpath("//input[@id='password']");
 	// passwordField.sendKeys(password);
 	private By loginButton = By.xpath("//span[@class='mat-button-wrapper' and text()='Login']");

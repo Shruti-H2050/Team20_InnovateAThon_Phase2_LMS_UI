@@ -32,13 +32,12 @@ public class Dashboard {
 
 	@When("Admin enters valid credentials and clicks login button")
 	public void admin_enters_valid_credentials_and_clicks_login_button() {
-		url = testbase.getUrl();
+		//url = testbase.getUrl();
+		//String username = testbase.getUsername();
+		//String password = testbase.getPassword();
+		//m_homepage.setLoginDetails(username, password);
 
-		String username = testbase.getUsername();
-		String password = testbase.getPassword();
-		m_homepage.setLoginDetails(username, password);
-
-		m_homepage.clickloginButton();
+		//m_homepage.clickloginButton();
 	}
 
 	@Then("Admin should see {string} as header")

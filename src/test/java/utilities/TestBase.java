@@ -50,41 +50,18 @@ public class TestBase {
 		return m_prop.getProperty("browser");
 	}
 
-	public WebDriver WebDriverManager(){
-		// FileInputStream fis = new FileInputStream(
-		// System.getProperty("user.dir") +
-		// "//src//test//resources//global.properties");
-		// Properties prop = new Properties();
-		// m_prop.load(fis);
-		// String url = m_prop.getProperty("Url");
-		// password = prop.getProperty("password");
+	public WebDriver WebDriverManager() {
 
-		/*
-		 * if (driver == null) { ChromeOptions options = new ChromeOptions();
-		 * options.addArguments("--headless"); //
-		 * WebDriverManager.chromedriver().setup(); driver = new ChromeDriver(options);
-		 * driver.manage().window().maximize();
-		 * driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		 * driver.get(url);
-		 * 
-		 * }
-		 */
 		try {
 			if (driver == null) {
 				String browser = getBrowser();
 				if (browser.equalsIgnoreCase("Chrome")) {
 					ChromeOptions options = new ChromeOptions();
-					// Set web driver path
-					// System.setProperty("webdriver.chrome.driver",
-					// "C:\\Users\\ajith\\Downloads\\chrome-headless-shell-win64\\chrome-headless-shell-win64\\chrome-headless-shell");
-					// System.setProperty("webdriver.chrome.driver",
-					// "C:\\Users\\ajith\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
-	
+
 					options.addArguments("--headless"); // Removing headless mode
-					//WebDriverManager.chromedriver().setup();
 					driver = new ChromeDriver(options);
 				} else {
-					//throw new IllegalArgumentException("Unsupported browser: " + browser);
+
 				}
 				if (driver != null) {
 					driver.manage().window().maximize();
@@ -92,11 +69,10 @@ public class TestBase {
 					driver.get(getUrl());
 				}
 			}
-		} catch( Exception e) {
-			//System.out.println("###################################" + e.getMessage());
-		} //finally {
-			//quitDriver();
-		//}
+		} catch (Exception e) {
+
+		}
+
 		return driver;
 	}
 
@@ -107,9 +83,9 @@ public class TestBase {
 			driver = null; // Set driver to null after quitting to prevent reuse
 		}
 	}
-	@Override 
+
+	@Override
 	protected void finalize() throws Throwable {
-	    
-		
+
 	}
 }

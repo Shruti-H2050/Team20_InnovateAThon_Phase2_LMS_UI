@@ -12,11 +12,7 @@ import java.util.List;
 public class DashboardPages {
 	private WebDriver driver;
 
-	public DashboardPages(WebDriver driver) {
-		this.driver = driver;
-
-	}
-
+	
 	//private By header = By.xpath("//div[contains(@class, 'box') and contains(text(), 'Manage Program')]");
 	private By header = By.xpath("//div[@class='box' and contains(text(), 'Manage Program')]");
 	private By dashboardpageTitle = By.xpath("//span[contains(text(), 'LMS - Learning Management System')]");
@@ -27,6 +23,10 @@ public class DashboardPages {
  By navigationBartextLogout = By.xpath("//span[@class='mat-button-wrapper' and text()='Logout']");
 
 
+ public DashboardPages(WebDriver driver) {
+		this.driver = driver;
+
+	}
 
 
 	public String headerverification() {

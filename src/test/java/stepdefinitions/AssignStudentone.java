@@ -162,6 +162,10 @@ public class AssignStudentone {
 
 	@Then("Admin gets a Error message alert as {string}")
 	public void admin_gets_a_error_message_alert_as(String errorMessage) {
+		 // Implement the logic to verify the message alert
+	   // throw new io.cucumber.java.PendingException();
+		//String actualMessage = driver.findElement(By.id("alertMessage")).getText();
+	   // Assert.assertEquals("Message alert does not match", expectedMessage, actualMessage);
 		//Assert.assertTrue(m_assignStudentPage.isErrorAlertEmailidDisplayed());
        // Assert.assertEquals(errorMessage, m_assignStudentPage.getErrorMessageText());
 	//	Assert.assertEquals("User Email Id is required.", m_assignStudentPage.getErrorMessageText());
