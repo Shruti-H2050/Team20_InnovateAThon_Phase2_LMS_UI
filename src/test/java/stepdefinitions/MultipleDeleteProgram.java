@@ -6,6 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageObjects.DeleteProgramPages;
+import pageObjects.HomePagePages;
 import pageObjects.LoginPages;
 import pageObjects.MultipleDeleteProgramPages;
 import utilities.TestBase;
@@ -13,17 +14,18 @@ import utilities.TestContextSetup;
 
 public class MultipleDeleteProgram {
 
-	public static WebDriver driver;
-    public TestBase testBase;
-    TestContextSetup testContextSetup;
-    LoginPages loginPage;
+	private TestContextSetup m_testContextSetup;
+	private final WebDriver m_driver;
+	private final TestBase testbase;
+	private String url;
+	HomePagePages m_homepage;
+	DeleteProgramPages deleteProgram;
     MultipleDeleteProgramPages multipleDeleteProgram;
 	
    public MultipleDeleteProgram(TestContextSetup testContextSetup) {
-	   this.testContextSetup = testContextSetup;
-   	this.testBase=testContextSetup.testBase;
-   	this.multipleDeleteProgram = new MultipleDeleteProgramPages(driver);
-   	this.loginPage=testContextSetup.pageObjectManager.getlogin();
+	  m_testContextSetup = testContextSetup;
+	  m_driver = testContextSetup.driver;
+   	this.testbase=testContextSetup.testBase;
    	this.multipleDeleteProgram = testContextSetup.pageObjectManager.multipleDeleteProgram();
 	   
    }

@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pageObjects.HomePagePages;
 import pageObjects.LoginPages;
 import pageObjects.NavigationValidationPages;
 import pageObjects.SortingValidationPages;
@@ -12,18 +13,18 @@ import utilities.TestContextSetup;
 
 public class NavigationValidation {
 
-	public static WebDriver driver;
-	public TestBase testBase;
-    TestContextSetup testContextSetup;
-    LoginPages loginPage;
+	private TestContextSetup m_testContextSetup;
+	private final WebDriver m_driver;
+	private final TestBase testbase;
+	private String url;
+	HomePagePages m_homepage;
     NavigationValidationPages navigationValidation;
     
    public NavigationValidation( TestContextSetup testContextSetup) {
-	   this.testContextSetup = testContextSetup;
-   	this.loginPage=testContextSetup.pageObjectManager.getlogin();
-   	this.testBase=testContextSetup.testBase;
-   	this.navigationValidation = new NavigationValidationPages(driver);
-   	this.navigationValidation = testContextSetup.pageObjectManager.navigationValidation();
+	   m_testContextSetup = testContextSetup;
+	   m_driver = testContextSetup.driver;
+   	this.testbase=testContextSetup.testBase;
+   	navigationValidation = testContextSetup.pageObjectManager.navigationValidation();
    }
    
    @When("Admin clicks on Batch link on Manage Program page")

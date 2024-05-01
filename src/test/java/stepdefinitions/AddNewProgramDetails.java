@@ -8,34 +8,52 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageObjects.AddNewProgramDetailsPages;
 import pageObjects.AddNewProgramPages;
+import pageObjects.HomePagePages;
 import pageObjects.LoginPages;
+import pageObjects.ManageProgramValidationPages;
 import utilities.TestBase;
 import utilities.TestContextSetup;
 
 public class AddNewProgramDetails {
 	
-	public static WebDriver driver;
-	public TestBase testBase;
-    TestContextSetup testContextSetup;
-    LoginPages loginPage;
-    AddNewProgramPages addNewProgram;
-    AddNewProgramDetailsPages addNewProgramDetails;
+	 HomePagePages m_homepage;
+		AddNewProgramPages addNewProgram;
+		ManageProgramValidationPages manageProgram;
+		AddNewProgramDetailsPages addNewProgramDetails;
+		private TestContextSetup m_testContextSetup;
+		private final WebDriver m_driver;
+		private final TestBase testbase;
+		private String url;
+		
+		/*
+		 * public static WebDriver driver; public TestBase testBase; TestContextSetup
+		 * testContextSetup; LoginPages loginPage; AddNewProgramPages addNewProgram;
+		 * AddNewProgramDetailsPages addNewProgramDetails;
+		 */
     
     public AddNewProgramDetails(TestContextSetup testContextSetup) {
-    	this.testContextSetup = testContextSetup;
-    	this.loginPage=testContextSetup.pageObjectManager.getlogin();
-    	this.testBase=testContextSetup.testBase;
-    	this.addNewProgramDetails = new AddNewProgramDetailsPages(driver);
-    	this.addNewProgramDetails = testContextSetup.pageObjectManager.addNewProgramDetails();
-    	this.addNewProgram = testContextSetup.pageObjectManager.addNewProgram();
+    	m_testContextSetup = testContextSetup;
+    	m_driver = testContextSetup.driver;
+    	this.testbase = testContextSetup.testBase;
+    	m_homepage = testContextSetup.pageObjectManager.gethomepage();
+    	addNewProgram = testContextSetup.pageObjectManager.addNewProgram();
+		manageProgram = testContextSetup.pageObjectManager.manageProgram();
+		addNewProgramDetails = testContextSetup.pageObjectManager.addNewProgramDetails();
+    	
+    	
+    	
+    	//this.addNewProgramDetails = new AddNewProgramDetailsPages(driver);
+    	
+    	//this.addNewProgram = testContextSetup.pageObjectManager.addNewProgram();
     }
 
 	@Given("Admin is on Manage Program Page after clicks Program on the navigation bar")
 	public void admin_is_on_manage_program_page_after_clicks_program_on_the_navigation_bar() {
-		String username = testBase.getUsername();
-        String password = testBase.getPassword();
-        loginPage.logindetails(username, password);
-        loginPage.clickloginButton();
+		url = testbase.getUrl();
+    	String username = testbase.getUsername();
+		String password = testbase.getPassword();
+		m_homepage.setLoginDetails(username, password);
+		m_homepage.clickloginButton();
         addNewProgram.pgmOnNavigationBar();
         Assert.assertTrue(addNewProgram.getTitle().contains("LMS"));
         System.out.println("On Manage pgm page");

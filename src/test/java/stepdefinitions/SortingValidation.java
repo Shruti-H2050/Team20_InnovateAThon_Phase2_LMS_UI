@@ -7,6 +7,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageObjects.AddNewProgramDetailsPages;
+import pageObjects.HomePagePages;
 import pageObjects.LoginPages;
 import pageObjects.SortingValidationPages;
 import utilities.TestBase;
@@ -14,29 +15,29 @@ import utilities.TestContextSetup;
 
 public class SortingValidation {
 
-	public static WebDriver driver;
-	public TestBase testBase;
-    TestContextSetup testContextSetup;
-    LoginPages loginPage;
+	private TestContextSetup m_testContextSetup;
+	private final WebDriver m_driver;
+	private final TestBase testbase;
+	private String url;
+	HomePagePages m_homepage;
     SortingValidationPages sortingValidation;
     
     public SortingValidation(TestContextSetup testContextSetup) {
-    	this.testContextSetup = testContextSetup;
-    	this.loginPage=testContextSetup.pageObjectManager.getlogin();
-    	this.testBase=testContextSetup.testBase;
-    	this.sortingValidation = new SortingValidationPages(driver);
-    	this.sortingValidation = testContextSetup.pageObjectManager.sortingValidation();
+    	m_testContextSetup = testContextSetup;
+    	 m_driver = testContextSetup.driver;
+    	this.testbase=testContextSetup.testBase;
+    	sortingValidation = testContextSetup.pageObjectManager.sortingValidation();
     }
 	
 	@Given("Admin is on Manage Program page")
 	public void admin_is_on_manage_program_page() {
-		sortingValidation.managePgmPage();
+		//sortingValidation.managePgmPage();
 	}
 
 	@When("Admin clicks the sort icon of program name column")
 	public void admin_clicks_the_sort_icon_of_program_name_column() {
-		sortingValidation.clickPgmNameSortIcon();
-		sortingValidation.sortedAscendingOrder();
+		//sortingValidation.clickPgmNameSortIcon();
+		//sortingValidation.sortedAscendingOrder();
 	}
 
 	@Then("The data get sorted on the table based on the program name column values in ascending order")

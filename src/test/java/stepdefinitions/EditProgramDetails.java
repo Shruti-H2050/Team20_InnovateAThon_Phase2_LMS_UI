@@ -6,28 +6,38 @@ import org.testng.Assert;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pageObjects.AddNewProgramDetailsPages;
 import pageObjects.AddNewProgramPages;
 import pageObjects.EditProgramDetailsPages;
+import pageObjects.HomePagePages;
 import pageObjects.LoginPages;
+import pageObjects.ManageProgramValidationPages;
 import utilities.TestBase;
 import utilities.TestContextSetup;
 
 public class EditProgramDetails {
 
-		public static WebDriver driver;
-	    public TestBase testBase;
-	    TestContextSetup testContextSetup;
-	    LoginPages loginPage;
-	    EditProgramDetailsPages editProgramDetails;
-	    AddNewProgramPages addNewProgram;
+	private TestContextSetup m_testContextSetup;
+	private final WebDriver m_driver;
+	private final TestBase testbase;
+	private String url;
+	HomePagePages m_homepage;
+	AddNewProgramPages addNewProgram;
+	AddNewProgramDetailsPages addNewProgramDetails;
+	EditProgramDetailsPages editProgramDetails;
+		
+		
+		
 	    
 	    public EditProgramDetails(TestContextSetup testContextSetup) {
-	    	this.testContextSetup = testContextSetup;
-	    	this.testBase=testContextSetup.testBase;
-	    	this.editProgramDetails = new EditProgramDetailsPages(driver);
-	    	this.loginPage=testContextSetup.pageObjectManager.getlogin();
-	    	this.editProgramDetails = testContextSetup.pageObjectManager.editProgramDetails();
-	    	this.addNewProgram = testContextSetup.pageObjectManager.addNewProgram();
+	    	m_testContextSetup = testContextSetup;
+	    	m_driver = testContextSetup.driver;
+	    	this.testbase = testContextSetup.testBase;
+	    	m_homepage = testContextSetup.pageObjectManager.gethomepage();
+	    	addNewProgram = testContextSetup.pageObjectManager.addNewProgram();
+	    	addNewProgramDetails = testContextSetup.pageObjectManager.addNewProgramDetails();
+	    	editProgramDetails = testContextSetup.pageObjectManager.editProgramDetails();
+	    	
 	    	
 	    }
 	    

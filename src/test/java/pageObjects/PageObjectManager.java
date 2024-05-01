@@ -9,6 +9,8 @@ public class PageObjectManager {
 	public WebDriver driver;
 	public TestContextSetup testContextSetup;
 	public LoginPages loginPage;
+	public HomePagePages m_homepage;
+	public DashboardPages m_dashboard;
 	public AddNewProgramPages addNewProgramPages;
 	public ManageProgramValidationPages manageProgram;
 	public AddNewProgramPages addNewProgram;
@@ -35,6 +37,21 @@ public class PageObjectManager {
 		return loginPage;
 		
 	}
+	
+	public HomePagePages gethomepage() {
+		   m_homepage=new HomePagePages(driver);
+			return m_homepage;
+			
+	   }
+	   
+		
+		  public DashboardPages getdashboard() { 
+			  m_dashboard=new
+		  DashboardPages(driver); 
+			  return m_dashboard;
+		  
+		  }
+		 
 	public AddNewProgramPages createNewPgm() {
 		addNewProgramPages = new AddNewProgramPages(driver);
 		return addNewProgramPages;

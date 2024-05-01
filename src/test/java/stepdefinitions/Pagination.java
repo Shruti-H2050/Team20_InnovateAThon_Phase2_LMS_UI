@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pageObjects.HomePagePages;
 import pageObjects.LoginPages;
 import pageObjects.PaginationPages;
 import pageObjects.SortingValidationPages;
@@ -13,19 +14,19 @@ import utilities.TestContextSetup;
 
 public class Pagination {
 
-	public static WebDriver driver;
-	public TestBase testBase;
-    TestContextSetup testContextSetup;
-    LoginPages loginPage;
+	private TestContextSetup m_testContextSetup;
+	private final WebDriver m_driver;
+	private final TestBase testbase;
+	private String url;
+	HomePagePages m_homepage;
    PaginationPages pagination;
    
    
    public Pagination(TestContextSetup testContextSetup) {
-	   this.testContextSetup = testContextSetup;
-   	this.loginPage=testContextSetup.pageObjectManager.getlogin();
-   	this.testBase=testContextSetup.testBase;
-   	this.pagination = new PaginationPages(driver);
-   	this.pagination = testContextSetup.pageObjectManager.pagination();
+	   m_testContextSetup = testContextSetup;
+	   m_driver = testContextSetup.driver;
+   	this.testbase=testContextSetup.testBase;
+   	pagination = testContextSetup.pageObjectManager.pagination();
    }
    
    @Given("Admin is on Manage Program Page after logged in")

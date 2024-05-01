@@ -7,24 +7,28 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageObjects.DeleteProgramPages;
+import pageObjects.HomePagePages;
 import pageObjects.LoginPages;
 import utilities.TestBase;
 import utilities.TestContextSetup;
 
 public class DeleteProgramPopUp {
 
-	public static WebDriver driver;
-    public TestBase testBase;
-    TestContextSetup testContextSetup;
-    LoginPages loginPage;
-    DeleteProgramPages deleteProgram;
+	private TestContextSetup m_testContextSetup;
+	private final WebDriver m_driver;
+	private final TestBase testbase;
+	private String url;
+	HomePagePages m_homepage;
+	DeleteProgramPages deleteProgram;
+	
+	
 	
     public DeleteProgramPopUp(TestContextSetup testContextSetup) {
-    	this.testContextSetup = testContextSetup;
-    	this.testBase=testContextSetup.testBase;
-    	this.deleteProgram = new DeleteProgramPages(driver);
-    	this.loginPage=testContextSetup.pageObjectManager.getlogin();
-    	this.deleteProgram = testContextSetup.pageObjectManager.deleteProgram();
+    	m_testContextSetup = testContextSetup;
+    	m_driver = testContextSetup.driver;
+    	this.testbase=testContextSetup.testBase;
+    	m_homepage = testContextSetup.pageObjectManager.gethomepage();
+    	deleteProgram = testContextSetup.pageObjectManager.deleteProgram();
     }
 	
 	@Given("Admin is on Confirm Deletion alert")
