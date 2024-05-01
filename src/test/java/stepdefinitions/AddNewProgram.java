@@ -9,40 +9,67 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageObjects.AddNewProgramPages;
+import pageObjects.HomePagePages;
 import pageObjects.LoginPages;
 import pageObjects.ManageProgramValidationPages;
 import utilities.TestBase;
 import utilities.TestContextSetup;
 
 public class AddNewProgram {
-	 public static WebDriver driver;
+	
+	// public static WebDriver driver;
+	 //   public TestBase testBase;
+	  //  TestContextSetup testContextSetup;
+	 //   LoginPages loginPage;
+	 //   AddNewProgramPages addNewProgram;
+	 //   ManageProgramValidationPages manageProgram;
 	    
-	    public TestBase testBase;
-	    TestContextSetup testContextSetup;
-	    LoginPages loginPage;
-	    AddNewProgramPages addNewProgram;
-	    ManageProgramValidationPages manageProgram;
+	    HomePagePages m_homepage;
+		AddNewProgramPages addNewProgram;
+		ManageProgramValidationPages manageProgram;
+		private TestContextSetup m_testContextSetup;
+		private final WebDriver m_driver;
+		private final TestBase testbase;
+		private String url;
 	    
 	    public AddNewProgram(TestContextSetup testContextSetup) {
-	    	this.testContextSetup = testContextSetup;
-	    	this.addNewProgram = new AddNewProgramPages(driver);
-	    	this.loginPage=testContextSetup.pageObjectManager.getlogin();
+	    	m_testContextSetup = testContextSetup;
+
+			m_driver = testContextSetup.driver;
+			this.testbase = testContextSetup.testBase;
+
+			m_homepage = testContextSetup.pageObjectManager.gethomepage();
+			// this.testContextSetup = testContextSetup;
+			addNewProgram = testContextSetup.pageObjectManager.addNewProgram();
+			manageProgram = testContextSetup.pageObjectManager.manageProgram();
+	    	
+	    	
+	    	//this.testContextSetup = testContextSetup;
+	    	//this.addNewProgram = new AddNewProgramPages(driver);
+	    //	this.loginPage=testContextSetup.pageObjectManager.getlogin();
 	    	//this.loginPage = new LoginPages(driver);
-	    	this.testBase=testContextSetup.testBase;
-	    	this.addNewProgram = testContextSetup.pageObjectManager.addNewProgram();
+	    	//this.testBase=testContextSetup.testBase;
+	    	//this.addNewProgram = testContextSetup.pageObjectManager.addNewProgram();
 	    }
 
 	   
 	    @Given("Admin is on dashboard page after Login and clicks Program on the navigation bar")
 	    public void admin_is_on_dashboard_page_after_login_and_clicks_program_on_the_navigation_bar() throws IOException {
 	    	//testContextSetup.testBase.WebDriverManager();
-	    	 String username = testBase.getUsername();
-	         String password = testBase.getPassword();
-	         loginPage.logindetails(username, password);
-	         loginPage.clickloginButton();
-	         addNewProgram.pgmOnNavigationBar();
+			/*
+			 * String username = testBase.getUsername(); String password =
+			 * testBase.getPassword(); loginPage.logindetails(username, password);
+			 * loginPage.clickloginButton(); addNewProgram.pgmOnNavigationBar();
+			 */
 	    	//loginPage.logindetails(testBase.getUsername(), testBase.getPassword());
 	       // loginPage.clickloginButton();
+	    	
+	    	url = testbase.getUrl();
+	    	String username = testbase.getUsername();
+			String password = testbase.getPassword();
+			m_homepage.setLoginDetails(username, password);
+			m_homepage.clickloginButton();
+			addNewProgram.pgmOnNavigationBar();
 	    }
     
 	    

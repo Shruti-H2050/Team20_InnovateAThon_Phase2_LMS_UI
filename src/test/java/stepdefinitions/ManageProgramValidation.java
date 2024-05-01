@@ -8,6 +8,7 @@ import org.testng.Assert;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pageObjects.HomePagePages;
 import pageObjects.LoginPages;
 import pageObjects.ManageProgramValidationPages;
 import utilities.TestBase;
@@ -17,15 +18,34 @@ public class ManageProgramValidation {
 	
 	 public static WebDriver driver;
 	    
-	    private TestBase testBase;
-	    TestContextSetup testContextSetup;
-	    ManageProgramValidationPages manageProgram;
+	    //private TestBase testBase;
+	    //TestContextSetup testContextSetup;
+	   // ManageProgramValidationPages manageProgram;
+	    
+	    private ManageProgramValidationPages manageProgram;
+		private HomePagePages m_homepage;
+		private final TestBase testbase;
+		private final WebDriver m_driver;
+	    private TestContextSetup m_testContextSetup;
+
+			private String url;
 	    
 	    public ManageProgramValidation(TestContextSetup testContextSetup) {
-	    	this.testContextSetup = testContextSetup;
-	    	this.manageProgram = new ManageProgramValidationPages(driver);
-	    	this.manageProgram = testContextSetup.pageObjectManager.manageProgram();
-	    	this.testBase=testBase;
+	    	m_testContextSetup = testContextSetup;
+
+			m_driver = testContextSetup.driver;
+	        this.testbase = testContextSetup.testBase;
+
+			m_homepage = testContextSetup.pageObjectManager.gethomepage();
+	       // this.testContextSetup = testContextSetup;
+
+			manageProgram = testContextSetup.pageObjectManager.manageProgram();
+	    	
+	    	
+	    	//this.testContextSetup = testContextSetup;
+	    	//this.manageProgram = new ManageProgramValidationPages(driver);
+	    	//this.manageProgram = testContextSetup.pageObjectManager.manageProgram();
+	    	//this.testBase=testBase;
 	    }
 
 	@Given("Admin is on dashboard after login")
