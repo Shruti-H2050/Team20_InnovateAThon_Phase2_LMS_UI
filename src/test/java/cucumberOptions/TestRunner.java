@@ -6,9 +6,9 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(features="src/test/java/features",
-glue="stepDefinitions",
+glue="stepdefinitions",
 monochrome=true,
-tags="@PlaceOrder or @OffersPage",
+tags="@UPV_05",
 plugin= {"html:target/cucumber.html",
 		"json:target/cucumber.json",
 		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
@@ -17,7 +17,7 @@ plugin= {"html:target/cucumber.html",
 
 public class TestRunner extends AbstractTestNGCucumberTests{
 	@Override
-	@DataProvider(parallel=true)
+	@DataProvider(parallel=false)
 	
 	public Object[][] scenarios()
 	{
