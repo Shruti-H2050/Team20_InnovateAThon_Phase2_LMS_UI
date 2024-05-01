@@ -1,27 +1,16 @@
 package cucumberOptions;
 
-import org.testng.annotations.DataProvider;
-
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
-@CucumberOptions(features="src/test/java/features",
-glue="stepDefinitions",
-monochrome=true,
-tags="@PlaceOrder or @OffersPage",
-plugin= {"html:target/cucumber.html",
-		"json:target/cucumber.json",
-		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
-		"rerun:target/failed_scenarios.txt"})  //captures failed secnarios in a txt file
-
-
-public class TestRunner extends AbstractTestNGCucumberTests{
-	@Override
-	@DataProvider(parallel=true)
-	
-	public Object[][] scenarios()
-	{
-		return super.scenarios();
-	}
-	
+@CucumberOptions(
+    features = {"src/test/resources/features/HomePageVerification.feature", "src/test/resources/features/DashBoard.feature","src/test/resources/features/Program/ManageProgramValidation.feature","src/test/resources/features/Program/AddNewProgram.feature"},
+    glue = "stepdefinitions",  
+    plugin = { 
+        "html:target/cucumber-reports/html", 
+        "json:target/cucumber-reports/json/report.json", 
+        "rerun:target/failed_scenarios.txt"},
+    monochrome = true // Added monochrome option
+)
+public class TestRunner extends AbstractTestNGCucumberTests {
 }

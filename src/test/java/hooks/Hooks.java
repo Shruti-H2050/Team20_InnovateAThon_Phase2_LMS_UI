@@ -7,33 +7,38 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-
 import io.cucumber.java.After;
-import io.cucumber.java.AfterStep;
 import io.cucumber.java.Scenario;
-import utilities.TestContextSetup;
+import utilities.TestBase;
 
 public class Hooks {
-TestContextSetup testContextSetup;
-	
-	public Hooks(TestContextSetup testContextSetup) {
-		this.testContextSetup = testContextSetup;
+	private WebDriver driver;
+
+	public Hooks(TestBase testBase) throws IOException {
+		this.driver = testBase.WebDriverManager();
 	}
 
-	@After
-	public void AfterScenario() throws IOException {
-		
-		testContextSetup.testBase.WebDriverManager().quit();
+	/*public WebDriver getDriver() {
+		return driver;
+	}*/
+
+//	@After
+	public void afterScenario(Scenario scenario) {
+		if (scenario.isFailed()) {
+			takeScreenshot(scenario);
+		}
+		if (driver != null) {
+			driver.quit();
+		}
 	}
-	
-	@AfterStep
-	public void AddScreenshot(Scenario scenario) throws IOException {
-		WebDriver driver = testContextSetup.testBase.WebDriverManager();
-		if(scenario.isFailed())
-		{
-			File sourcePath = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			byte[] fileContent  = FileUtils.readFileToByteArray(sourcePath);
+
+	private void takeScreenshot(Scenario scenario) {
+		try {
+			File sourcePath = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+			byte[] fileContent = FileUtils.readFileToByteArray(sourcePath);
 			scenario.attach(fileContent, "image/png", "image");
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 }
