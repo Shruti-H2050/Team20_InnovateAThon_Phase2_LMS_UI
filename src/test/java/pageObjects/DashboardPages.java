@@ -12,30 +12,22 @@ import java.util.List;
 public class DashboardPages {
 	private WebDriver driver;
 
-	
-	//private By header = By.xpath("//div[contains(@class, 'box') and contains(text(), 'Manage Program')]");
 	private By header = By.xpath("//div[@class='box' and contains(text(), 'Manage Program')]");
 	private By dashboardpageTitle = By.xpath("//span[contains(text(), 'LMS - Learning Management System')]");
-	 By navigationBar = By.xpath("//mat-toolbar");
- By navigationBartext = By.xpath("//span[@class='mat-button-wrapper' and text()='Program']");
- By navigationBartextBatch = By.xpath("//span[@class='mat-button-wrapper' and text()='Batch']");
- By navigationBartextUser = By.xpath("//span[@class='mat-button-wrapper' and text()='User']");
- By navigationBartextLogout = By.xpath("//span[@class='mat-button-wrapper' and text()='Logout']");
+	By navigationBar = By.xpath("//mat-toolbar");
+	By navigationBartext = By.xpath("//span[@class='mat-button-wrapper' and text()='Program']");
+	By navigationBartextBatch = By.xpath("//span[@class='mat-button-wrapper' and text()='Batch']");
+	By navigationBartextUser = By.xpath("//span[@class='mat-button-wrapper' and text()='User']");
+	By navigationBartextLogout = By.xpath("//span[@class='mat-button-wrapper' and text()='Logout']");
 
-
- public DashboardPages(WebDriver driver) {
+	public DashboardPages(WebDriver driver) {
 		this.driver = driver;
 
 	}
 
-
 	public String headerverification() {
-		//WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
-		// Wait for the header element to be visible
-//		WebElement headerElement = wait.until(ExpectedConditions.visibilityOfElementLocated(header));
-
-		 WebElement headerElement = driver.findElement(header);
+		WebElement headerElement = driver.findElement(header);
 		String headerText = headerElement.getText();
 
 		if (headerText.contains("Manage Program")) {
@@ -79,12 +71,11 @@ public class DashboardPages {
 	}
 
 	public String navigationbarspelltest() {
-	    WebElement navigationBarElement = driver.findElement(navigationBar);
-	    String navigationText = navigationBarElement.getText();
-	    navigationText = navigationText.replace("\n", " | ");
-	    return navigationText;
+		WebElement navigationBarElement = driver.findElement(navigationBar);
+		String navigationText = navigationBarElement.getText();
+		navigationText = navigationText.replace("\n", " | ");
+		return navigationText;
 	}
-
 
 	public String Titlespelltest() {
 
@@ -104,32 +95,27 @@ public class DashboardPages {
 	}
 
 	public String getFirstNavigationBarItemsLocation() {
-		  WebElement navigationBarElement = driver.findElement(navigationBartext);
-		    return navigationBarElement.getText();
+		WebElement navigationBarElement = driver.findElement(navigationBartext);
+		return navigationBarElement.getText();
 
-		
 	}
+
 	public String getSecondNavigationBarItemsLocation() {
-		  WebElement navigationBarElement = driver.findElement(navigationBartextBatch);
-		    return navigationBarElement.getText();
+		WebElement navigationBarElement = driver.findElement(navigationBartextBatch);
+		return navigationBarElement.getText();
 
-		
 	}
+
 	public String getthirdNavigationBarItemsLocation() {
-		  WebElement navigationBarElement = driver.findElement(navigationBartextUser);
-		    return navigationBarElement.getText();
+		WebElement navigationBarElement = driver.findElement(navigationBartextUser);
+		return navigationBarElement.getText();
 
-		
 	}
+
 	public String getfourthNavigationBarItemsLocation() {
-		  WebElement navigationBarElement = driver.findElement(navigationBartextLogout);
-		    return navigationBarElement.getText();
+		WebElement navigationBarElement = driver.findElement(navigationBartextLogout);
+		return navigationBarElement.getText();
 
-		
 	}
-	
-	
-	
-	
 
 }
