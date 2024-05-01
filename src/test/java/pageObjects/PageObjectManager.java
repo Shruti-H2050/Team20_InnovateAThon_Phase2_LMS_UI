@@ -19,6 +19,8 @@ public class PageObjectManager {
 	public SortingValidationPages sortingValidation;
 	public PaginationPages pagination;
 	public NavigationValidationPages navigationValidation;
+	public DeleteUserPages deleteUser;
+	public DeleteMultipleUserPages deleteMultipleUser;
 	/*
 	 * public UserPageValidationPages userPageValidation;
 	 * 
@@ -80,4 +82,18 @@ public class PageObjectManager {
 		navigationValidation = new NavigationValidationPages(driver);
 		return navigationValidation;
 	}
+
+
+public DeleteUserPages deleteUser() {
+	 deleteUser = new DeleteUserPages(driver);
+	 
+	 return deleteUser;
+}
+
+public DeleteMultipleUserPages DeleteMultipleUser() {
+	deleteMultipleUser = new DeleteMultipleUserPages(driver);
+	 
+	 return deleteMultipleUser;
+
+}
 }
