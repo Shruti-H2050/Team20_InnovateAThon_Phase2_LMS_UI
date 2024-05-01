@@ -30,121 +30,137 @@ public class ManageProgramValidationPages {
 	By pgmNameSortIcon = By.xpath("//p-sorticon[@field='programName']");
 	By pgmDescSortIcon = By.xpath("//p-sorticon[@field='description']");
 	By pgmStatusSortIcon = By.xpath("//p-sorticon[@field='status']");
-	
-	
+
 	public ManageProgramValidationPages(WebDriver driver) {
 		this.driver = driver;
 	}
-	
+
 	public String getTitle() {
 		return driver.getTitle();
 	}
-	
+
 	public void pgmOnNavigationBar() {
-		 driver.findElement(programOnNavigationBar).click();
-		 
+		driver.findElement(programOnNavigationBar).click();
+
 	}
-	
+
 	public String getCurrentManagePgmUrl() {
 		return driver.getCurrentUrl();
 	}
-	
+
 	public String getTestManagePgmUrl() {
 		return testManagePgmUrl;
-		
+
 	}
+
 	public boolean checkPgmPageHeading() {
-		if(headingCheckPgmPage == "Manage Program") return true;
+		if (headingCheckPgmPage == "Manage Program")
+			return true;
 		return true;
-		
+
 	}
+
 	public String getPaginationText() {
 		return paginationText;
-		
+
 	}
+
 	public void checkPaginationButton() {
 		driver.findElement(paginationIconDoublearrow).isDisplayed();
 		driver.findElement(paginationIconSingleArrow).isDisplayed();
 	}
-	 public String getFooterText() {
+
+	public String getFooterText() {
 		return footerText;
-		 
-	 }
-	 public boolean validateDeleteButtonOnTopLeft()
-{
+
+	}
+
+	public boolean validateDeleteButtonOnTopLeft() {
 		driver.findElement(deletButtonOnTopLeft).isEnabled();
 		return false;
-}
-	 public void newPgmButton() {
-		 driver.findElement(newPgmButtonPresent).getText().contains(newPgmButtonText);
-	 }
-	 
-	 public List<WebElement> getTableNumOfRows() {
-		 List<WebElement> rows = driver.findElements(tablerowsdisplayed);
-		 
-		 System.out.println("Number of rows in table are: "+rows.size());
+	}
+
+	public void newPgmButton() {
+		driver.findElement(newPgmButtonPresent).getText().contains(newPgmButtonText);
+	}
+
+	public List<WebElement> getTableNumOfRows() {
+		List<WebElement> rows = driver.findElements(tablerowsdisplayed);
+
+		System.out.println("Number of rows in table are: " + rows.size());
 		return rows;
-	 }
-	 
-	 public boolean getpgmNameColumnHeader() {
-		 String pgmNamecheck=driver.findElement(pgmNameColumnHeader).getText();
-		 if(pgmNamecheck == "Program Name") return true;
-		 System.out.println("PgmName"+pgmNamecheck);
+	}
+
+	public boolean getpgmNameColumnHeader() {
+		String pgmNamecheck = driver.findElement(pgmNameColumnHeader).getText();
+		if (pgmNamecheck == "Program Name")
+			return true;
+		System.out.println("PgmName" + pgmNamecheck);
 		return true;
-	 }
-	 
-	 public boolean getpgmDescColumnnHeader() {
-		 String pgmDesccheck = driver.findElement(pgmDescColumnnHeader).getText();
-		 if(pgmDesccheck == "Program Description") return true;
-		 System.out.println("PgmDesc"+pgmDesccheck);
+	}
+
+	public boolean getpgmDescColumnnHeader() {
+		String pgmDesccheck = driver.findElement(pgmDescColumnnHeader).getText();
+		if (pgmDesccheck == "Program Description")
 			return true;
-		 
-	 }
-	 
-	 public boolean getpgmStatusColumnHeader() {
-		 String pgmDesccheck = driver.findElement(pgmStatusColumnHeader).getText();
-		 if(pgmDesccheck == "Program Status") return true;
-		 System.out.println("PgmStatus"+pgmDesccheck);
-			return true;
-	 }
-	 public boolean getpgmEditDeleteColumnHeader() {
-		 String pgmEditDelete = driver.findElement(pgmEditDeleteColumnHeader).getText();
-		 if(pgmEditDelete == "Edit/Delete") return true;
-		 return true;
-	 }
-	 
-	 public boolean checkboxPresent() {
-List<WebElement> rows = driver.findElements(tablerowsdisplayed);
-		 System.out.println("Number of rows in table are: "+rows.size());
-		 for(int i=0;i<rows.size();i++) {
-			driver.findElement(checkbox).isDisplayed() ;
-		 }
+		System.out.println("PgmDesc" + pgmDesccheck);
 		return true;
-	 }
-	 public boolean checkEditBtnPresent() {
-		 List<WebElement> editbtnCheck= driver.findElements(editButton);
-		 for(int i=0;i<editbtnCheck.size();i++) {
-				driver.findElement(checkbox).isDisplayed() ;
-			 }
+
+	}
+
+	public boolean getpgmStatusColumnHeader() {
+		String pgmDesccheck = driver.findElement(pgmStatusColumnHeader).getText();
+		if (pgmDesccheck == "Program Status")
 			return true;
-	 }
-	 public boolean checkDeleteBtnPresent() {
-		 List<WebElement> deletebtnCheck= driver.findElements(deleteButton);
-		 for(int i=0;i<deletebtnCheck.size();i++) {
-				driver.findElement(checkbox).isDisplayed() ;
-			 }
+		System.out.println("PgmStatus" + pgmDesccheck);
+		return true;
+	}
+
+	public boolean getpgmEditDeleteColumnHeader() {
+		String pgmEditDelete = driver.findElement(pgmEditDeleteColumnHeader).getText();
+		if (pgmEditDelete == "Edit/Delete")
 			return true;
-	 }
-	 public void checkSearchBar() {
-		 driver.findElement(searchBar);
-	 }
-	 public void checkPgmNameSortIcon() {
-		 driver.findElement(pgmNameSortIcon);
-	 }
-	 public void checkPgmDescSortIson() {
-		 driver.findElement(pgmDescSortIcon);
-	 }
-	 public void checkPgmStatusSortIcon() {
-		 driver.findElement(pgmStatusSortIcon);
-	 }
+		return true;
+	}
+
+	public boolean checkboxPresent() {
+		List<WebElement> rows = driver.findElements(tablerowsdisplayed);
+		System.out.println("Number of rows in table are: " + rows.size());
+		for (int i = 0; i < rows.size(); i++) {
+			driver.findElement(checkbox).isDisplayed();
+		}
+		return true;
+	}
+
+	public boolean checkEditBtnPresent() {
+		List<WebElement> editbtnCheck = driver.findElements(editButton);
+		for (int i = 0; i < editbtnCheck.size(); i++) {
+			driver.findElement(checkbox).isDisplayed();
+		}
+		return true;
+	}
+
+	public boolean checkDeleteBtnPresent() {
+		List<WebElement> deletebtnCheck = driver.findElements(deleteButton);
+		for (int i = 0; i < deletebtnCheck.size(); i++) {
+			driver.findElement(checkbox).isDisplayed();
+		}
+		return true;
+	}
+
+	public void checkSearchBar() {
+		driver.findElement(searchBar);
+	}
+
+	public void checkPgmNameSortIcon() {
+		driver.findElement(pgmNameSortIcon);
+	}
+
+	public void checkPgmDescSortIson() {
+		driver.findElement(pgmDescSortIcon);
+	}
+
+	public void checkPgmStatusSortIcon() {
+		driver.findElement(pgmStatusSortIcon);
+	}
 }

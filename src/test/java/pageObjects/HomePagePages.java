@@ -50,26 +50,22 @@ public class HomePagePages {
 	}
 
 	public void clickloginButton() {
-		 try {
-		        //WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		        //WebElement loginButtonElement = wait.until(ExpectedConditions.elementToBeClickable(loginButton));
-		        WebElement login = driver.findElement(loginButton);
-		        System.out.println("Clicking on the login element in the main page");
-		        login.click();
-			    //driver.manage().timeouts().pageLoadTimeout(10,TimeUnit.SECONDS);
-		        //loginButtonElement.click();
-		        System.out.println("++++++++Clicked on login button");
-		    } catch (Exception e) {
-		        System.err.println("Failed to click login button: " + e.getMessage());
-		        e.printStackTrace();
-		    }
-	}
-	// Inside the HomePagePages class
-	public boolean isDashboardPageDisplayed() {
-	    
-	    return driver.findElement(Manageprogheader).isDisplayed();
+		try {
+
+			WebElement login = driver.findElement(loginButton);
+			System.out.println("Clicking on the login element in the main page");
+			login.click();
+			System.out.println("++++++++Clicked on login button");
+		} catch (Exception e) {
+			System.err.println("Failed to click login button: " + e.getMessage());
+			e.printStackTrace();
+		}
 	}
 
+	public boolean isDashboardPageDisplayed() {
+
+		return driver.findElement(Manageprogheader).isDisplayed();
+	}
 
 	public int verifyuRL(String url) {
 		int responseCode = -1;
@@ -120,7 +116,6 @@ public class HomePagePages {
 		WebElement element = driver.findElement(lmsheader);
 		return element.getText();
 	}
-
 
 	public String user_text_color() {
 		WebElement usernameElement = driver.findElement(usernameField);
