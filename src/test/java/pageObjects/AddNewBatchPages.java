@@ -56,7 +56,7 @@ public class AddNewBatchPages {
 		Boolean name=driver.findElement(By.xpath("//label[@for='batchName']")).isDisplayed();
 		Boolean nametxt=driver.findElement(By.xpath("//input[@id='batchName']")).isDisplayed();
 		Assert.assertEquals(name,nametxt);
-		System.out.println("BatchName and its corersponding text field are seen in the pop up window");
+		System.out.println("BatchName and its corresponding text field are seen in the pop up window");
 		
 		Boolean description=driver.findElement(By.xpath("//label[@for='batchDescription']")).isDisplayed();
 		Boolean descriptiontxt=driver.findElement(By.xpath("//input[@id='batchDescription']")).isDisplayed();

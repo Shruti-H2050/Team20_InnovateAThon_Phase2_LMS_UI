@@ -2,6 +2,7 @@ package pageObjects;
 import org.openqa.selenium.WebDriver;
 public class PageObjectManager {
 	public WebDriver driver;
+	public AddNewUserPages  addnewuserPages;
 	public AddNewProgramPages addNewProgramPages;
 	public AddNewBatchPages addNewBatchPages;
 	public BatchPageValidationPages batchPageValidationPages;
@@ -37,4 +38,8 @@ public class PageObjectManager {
 		deleteMultipleBatchesPages = new DeleteMultipleBatchesPages(driver);
 		return deleteMultipleBatchesPages;		
 }
+	public AddNewUserPages addnewuser() {
+		addnewuserPages=new AddNewUserPages(driver);
+		return addnewuserPages;	
+	}
 }
