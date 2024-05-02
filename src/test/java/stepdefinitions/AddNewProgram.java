@@ -10,7 +10,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageObjects.AddNewProgramPages;
 import pageObjects.HomePagePages;
-//import pageObjects.LoginPages;
 import pageObjects.ManageProgramValidationPages;
 import utilities.TestBase;
 import utilities.TestContextSetup;
@@ -72,11 +71,11 @@ public class AddNewProgram {
 
 	@Then("Admin should see two input fields and their respective text boxes in the program details window")
 	public void admin_should_see_two_input_fields_and_their_respective_text_boxes_in_the_program_details_window() {
-		Assert.assertTrue(addNewProgram.checkPopUpFieldTexTBox());
+	        Assert.assertTrue(addNewProgram.checkPopUpFieldTexTBox());
 	}
 
 	@Then("Admin should see two radio button for Program Status")
 	public void admin_should_see_two_radio_button_for_program_status() {
-		Assert.assertTrue(addNewProgram.radioBtnCheck());
+	    Assert.assertTrue(addNewProgram.radioBtnCheck());
 	}
 }

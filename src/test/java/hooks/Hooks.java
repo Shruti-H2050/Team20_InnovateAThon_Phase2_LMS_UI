@@ -22,7 +22,6 @@ public class Hooks {
 		return driver;
 	}*/
 
-//	@After
 	public void afterScenario(Scenario scenario) {
 		if (scenario.isFailed()) {
 			takeScreenshot(scenario);

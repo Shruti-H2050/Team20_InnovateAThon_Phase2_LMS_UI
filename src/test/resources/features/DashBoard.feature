@@ -2,9 +2,9 @@
 Feature: Verify Dashboard Page
 
   Background:
-    Given Admin is in Home Page
-    When Admin enter valid credentials username and password and clicks login button
-    Then Admin should land on dashboard page
+    Given Admin is in Home Page.
+    When Admin enter valid credentials username and password and clicks login button.
+    Then Admin should land on dashboard page.
 
   @Dashboardtest1
   Scenario: Admin lands on Manage Program Dashboard Page

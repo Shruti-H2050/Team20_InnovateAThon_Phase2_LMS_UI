@@ -36,7 +36,7 @@ public class AddNewProgramPages {
 	By pgmDetailsPopUpDisappers = By.xpath("//div[@role='dialog']");
 	By successfulPgmCreation = By.xpath("//*[contains(text(),'Program Created Successfully')]");
 	By searchTextbox = By.xpath("//input[@placeholder='Search...']");
-	By searchSuccess = By.xpath("//td[contains(text(),'InnovateAthonLMSHackathon')]");
+	By searchSuccess = By.xpath("//td[contains(text(),'Team20Innovathon')]");
 	By popUpClose = By.xpath("//*[@role='dialog']");
 			
 	public AddNewProgramPages(WebDriver driver) {
@@ -153,9 +153,9 @@ driver.findElement(pgmStatusErrorMsg).isDisplayed();
 		
 	}
 	public boolean search() {
-	 driver.findElement(searchTextbox).sendKeys("InnovateAthonLMSHackathon");
+	driver.findElement(searchTextbox).sendKeys("Team20Innovathon");
 	String searchEntry = driver.findElement(searchSuccess).getText();
-	if(searchEntry=="InnovateAthonLMSHackathon") return true;
+	if(searchEntry=="Team20Innovathon") return true;
 	return true;
 	
 	}
