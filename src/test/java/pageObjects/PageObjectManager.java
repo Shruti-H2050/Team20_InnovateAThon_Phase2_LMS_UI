@@ -24,11 +24,12 @@ public class PageObjectManager {
 
         public SortingValidationPages sortingValidation;
         public PaginationPages pagination;
-        public NavigationValidationPages navigationValidation
+        public NavigationValidationPages navigationValidation;
         public AddNewProgramDetailsPages addNewProgramDetails;
         public DeleteProgramPages deleteProgram;
         public MultipleDeleteProgramPages multipleDeleteProgram;
         public EditProgramDetailsPages editProgramDetails;
+    	public DeleteUserPages deleteUser;
 
 	// public AddNewProgramDetailsPages addNewProgramDetails;
 
@@ -131,6 +132,11 @@ public class PageObjectManager {
 	public NavigationValidationPages navigationValidation() {
 		navigationValidation = new NavigationValidationPages(driver);
 		return navigationValidation;
+	}
+	public DeleteUserPages deleteUser() {
+		 deleteUser = new DeleteUserPages(driver);
+		 
+		 return deleteUser;
 	}
 
 

@@ -13,7 +13,6 @@ public class TestContextSetup {
 	public WebDriver driver;
 	public PageObjectManager pageObjectManager;
 	public TestBase testBase;
-	public HomeTestBase homeTestBase;
 	//public GenericUtils genricUtils;
 	
 	public TestContextSetup() throws IOException {
