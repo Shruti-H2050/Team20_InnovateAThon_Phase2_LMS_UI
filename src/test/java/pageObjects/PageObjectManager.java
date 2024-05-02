@@ -8,66 +8,101 @@ public class PageObjectManager {
 
 	public WebDriver driver;
 	public TestContextSetup testContextSetup;
-	public LoginPages loginPage;
 	public HomePagePages m_homepage;
 	public DashboardPages m_dashboard;
+
 	public AddNewProgramPages addNewProgramPages;
 	public ManageProgramValidationPages manageProgram;
 	public AddNewProgramPages addNewProgram;
-	public AddNewProgramDetailsPages addNewProgramDetails;
-	public EditProgramDetailsPages editProgramDetails;
-	public DeleteProgramPages deleteProgram;
-	public MultipleDeleteProgramPages multipleDeleteProgram;
-	public SortingValidationPages sortingValidation;
-	public PaginationPages pagination;
-	public NavigationValidationPages navigationValidation;
-	/*
-	 * public UserPageValidationPages userPageValidation;
-	 * 
-	 * public UserPageValidationPages userPageValidation() { userPageValidation =
-	 * new UserPageValidationPages(driver); return userPageValidation; }
-	 */
+	public BatchPageValidationPages batchPageValidationPages;
+	public EditBatchPages editBatchPages;
+	public DeleteBatchPages deleteBatchPages;
+	public DeleteMultipleBatchesPages deleteMultipleBatchesPages;
+	public AssignStudentPages assignStudentPage;
+	public AddNewBatchPages createNewBatch;
+	public AddNewUserPages addnewuser;
+
+        public SortingValidationPages sortingValidation;
+        public PaginationPages pagination;
+        public NavigationValidationPages navigationValidation
+        public AddNewProgramDetailsPages addNewProgramDetails;
+        public DeleteProgramPages deleteProgram;
+        public MultipleDeleteProgramPages multipleDeleteProgram;
+        public EditProgramDetailsPages editProgramDetails;
+
+	// public AddNewProgramDetailsPages addNewProgramDetails;
 
 	public PageObjectManager(WebDriver driver) {
 		this.driver = driver;
 	}
-	
-	public LoginPages getlogin() {
-		loginPage=new LoginPages(driver);
-		return loginPage;
-		
-	}
-	
+
 	public HomePagePages gethomepage() {
-		   m_homepage=new HomePagePages(driver);
-			return m_homepage;
-			
-	   }
-	   
-		
-		  public DashboardPages getdashboard() { 
-			  m_dashboard=new
-		  DashboardPages(driver); 
-			  return m_dashboard;
-		  
-		  }
-		 
+		m_homepage = new HomePagePages(driver);
+		return m_homepage;
+
+	}
+
+	public DashboardPages getdashboard() {
+		m_dashboard = new DashboardPages(driver);
+		return m_dashboard;
+
+	}
+
 	public AddNewProgramPages createNewPgm() {
 		addNewProgramPages = new AddNewProgramPages(driver);
+
 		return addNewProgramPages;
-}
-	
+	}
+
+	public AddNewBatchPages createNewBatch() {
+		createNewBatch = new AddNewBatchPages(driver);
+
+		return createNewBatch;
+	}
+
+	public AddNewUserPages addnewuser() {
+		addnewuser = new AddNewUserPages(driver);
+
+		return addnewuser;
+	}
+
 	public ManageProgramValidationPages manageProgram() {
 		manageProgram = new ManageProgramValidationPages(driver);
 		return manageProgram;
-		
+
 	}
-	
+
+	public BatchPageValidationPages batchpageval() {
+		batchPageValidationPages = new BatchPageValidationPages(driver);
+		return batchPageValidationPages;
+	}
+
 	public AddNewProgramPages addNewProgram() {
-		 addNewProgram = new AddNewProgramPages(driver);
-		 return addNewProgram;
+		addNewProgram = new AddNewProgramPages(driver);
+		return addNewProgram;
 	}
-	
+
+	public EditBatchPages editbatchpage() {
+		editBatchPages = new EditBatchPages(driver);
+		return editBatchPages;
+	}
+
+	public DeleteBatchPages deletebatch() {
+		deleteBatchPages = new DeleteBatchPages(driver);
+		return deleteBatchPages;
+	}
+
+	public DeleteMultipleBatchesPages deletemultiplebatches() {
+		deleteMultipleBatchesPages = new DeleteMultipleBatchesPages(driver);
+		return deleteMultipleBatchesPages;
+	}
+
+	public AssignStudentPages assignStudentPage() {
+		assignStudentPage = new AssignStudentPages(driver);
+		return assignStudentPage;
+	}
+
+
 	public AddNewProgramDetailsPages addNewProgramDetails() {
 		addNewProgramDetails = new AddNewProgramDetailsPages(driver);
 		return addNewProgramDetails;
@@ -97,4 +132,6 @@ public class PageObjectManager {
 		navigationValidation = new NavigationValidationPages(driver);
 		return navigationValidation;
 	}
+
+
 }

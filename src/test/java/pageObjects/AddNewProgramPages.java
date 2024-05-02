@@ -23,7 +23,7 @@ public class AddNewProgramPages {
 	By closeIconPopUp = By.xpath("//*[@tabindex='-1']");
 	By pgmPopUpNameInputField = By.xpath("//label[contains(text(),'Name')]");
 	By pgmPopUpDescInputField = By.xpath("//label[contains(text(),'Description')]");
-	By pgmPopUpNameTextBox= By.xpath("//input[@id='programName']"); 
+	By pgmPopUpNameTextBox= By.xpath("//input[@id='programName']");
 	By pgmPopUpDescTextBox = By.xpath("//input[@id='programDescription']");
 	By pgmPopUpStatusInputField = By.xpath("//lable[contains(text(),'Status')]");
 	By pgmStatusRadioButton = By.xpath("//*[@id='category']");
@@ -153,7 +153,7 @@ driver.findElement(pgmStatusErrorMsg).isDisplayed();
 		
 	}
 	public boolean search() {
-	 driver.findElement(searchTextbox).sendKeys("Team20Innovathon");
+	driver.findElement(searchTextbox).sendKeys("Team20Innovathon");
 	String searchEntry = driver.findElement(searchSuccess).getText();
 	if(searchEntry=="Team20Innovathon") return true;
 	return true;

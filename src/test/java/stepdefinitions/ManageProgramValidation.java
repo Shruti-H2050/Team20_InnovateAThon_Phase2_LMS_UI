@@ -9,29 +9,24 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageObjects.HomePagePages;
-import pageObjects.LoginPages;
 import pageObjects.ManageProgramValidationPages;
 import utilities.TestBase;
 import utilities.TestContextSetup;
 
 public class ManageProgramValidation {
 	
-	 public static WebDriver driver;
-	    
-	    //private TestBase testBase;
-	    //TestContextSetup testContextSetup;
-	   // ManageProgramValidationPages manageProgram;
-	    
-	    private ManageProgramValidationPages manageProgram;
-		private HomePagePages m_homepage;
-		private final TestBase testbase;
-		private final WebDriver m_driver;
-	    private TestContextSetup m_testContextSetup;
+	private ManageProgramValidationPages manageProgram;
+	private HomePagePages m_homepage;
+	private final TestBase testbase;
+	private final WebDriver m_driver;
+    private TestContextSetup m_testContextSetup;
 
-			private String url;
+		private String url;
+
 	    
-	    public ManageProgramValidation(TestContextSetup testContextSetup) {
-	    	m_testContextSetup = testContextSetup;
+	  
+		public ManageProgramValidation(TestContextSetup testContextSetup) throws IOException {
+			m_testContextSetup = testContextSetup;
 
 			m_driver = testContextSetup.driver;
 	        this.testbase = testContextSetup.testBase;
@@ -40,16 +35,19 @@ public class ManageProgramValidation {
 	       // this.testContextSetup = testContextSetup;
 
 			manageProgram = testContextSetup.pageObjectManager.manageProgram();
-	    	
-	    	
-	    	//this.testContextSetup = testContextSetup;
-	    	//this.manageProgram = new ManageProgramValidationPages(driver);
-	    	//this.manageProgram = testContextSetup.pageObjectManager.manageProgram();
-	    	//this.testBase=testBase;
-	    }
+		}
+
 
 	@Given("Admin is on dashboard after login")
 	public void admin_is_on_dashboard_after_login() {
+		//url = testbase.getUrl();
+
+		//String username = testbase.getUsername();
+		//String password = testbase.getPassword();
+		//m_homepage.setLoginDetails(username, password);
+
+		//m_homepage.clickloginButton();
+		
 		Assert.assertTrue(manageProgram.getTitle().contains("LMS"));
 		System.out.println("On the manage pgm dashboard");		
 		
@@ -64,7 +62,7 @@ public class ManageProgramValidation {
 	@Then("Admin should see URL with {string}")
 	public void admin_should_see_url_with(String string) throws IOException {
 		//This assert must actually fail, this is bug as manage pgm url doesnt have manage program as endpoint in url
-		 System.out.println(manageProgram.getCurrentManagePgmUrl());
+		System.out.println(manageProgram.getCurrentManagePgmUrl());
 		 System.out.println(manageProgram.getTestManagePgmUrl());
 	    Assert.assertEquals(manageProgram.getCurrentManagePgmUrl(),manageProgram.getTestManagePgmUrl());
 	   
