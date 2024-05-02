@@ -1,14 +1,15 @@
-Feature: Add New Batch Validation
+Feature: Edit Batch Validation
 
  Background: 
-    Given Logged into the LMS portal.
-    When  Admin is on dashboard page after Login and admin clicks on "Batch" from navigation bar
-    Then  Admin clicks "+ A New Batch" button 
+    Given Admin is in Home Page
+    When Admin enter valid credentials username and password and clicks login button
+    Then Admin should land on dashboard page
+    When Admin clicks "Batch" from navigation bar. 
 
   @EB_001
   Scenario: Validate row level edit icon
     Given The edit icon on row level in data table is enabled
-    When Admin clicks the edit icon
+    When Admin clicks the edit icon at row level
     Then A new pop up with Batch details will appears
     
   @EB_002
@@ -32,8 +33,10 @@ Feature: Add New Batch Validation
   @EB_005
   Scenario: Check if description field is optional in update
     Given Admin clicks the edit icon
-    When Erase data from mandatory field
-    Then The updated batch details should appear on the data table
-    
+    When Erase data from description field 
+    Then See Error message appears if the description is mandatory.
+   
 
+    
+ 
  
