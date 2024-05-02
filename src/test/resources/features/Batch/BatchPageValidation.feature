@@ -1,8 +1,10 @@
 Feature: Batch Page Validation
  
- Background: 
-    Given Logged on the LMS portal...
-
+   Background: Validate login with valid credentials
+  Given Admin is in Home Page
+	When Admin enter valid credentials username and password and clicks login button 
+	Then Admin should land on dashboard page
+    
   @BPV_001
   Scenario: Validate landing in Batch page
     Given Admin is on dashboard page after Login.
