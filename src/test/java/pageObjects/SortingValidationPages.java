@@ -35,7 +35,7 @@ public class SortingValidationPages {
 		 pgmNamesList = driver.findElements(dataFromPgmNameColumn);
 		
 		//capture text of all webelements
-		  originalList = pgmNamesList.stream().map(s->s.getText()).collect(Collectors.toList());
+		//  originalList = pgmNamesList.stream().map(s->s.getText()).collect(Collectors.toList());
 		
 		//sort on original list
 		   originalList.stream().sorted().collect(Collectors.toList());

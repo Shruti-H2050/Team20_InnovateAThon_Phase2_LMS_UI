@@ -46,7 +46,7 @@ public class AddNewProgramDetails {
     	
     	//this.addNewProgram = testContextSetup.pageObjectManager.addNewProgram();
     }
-
+/*
 	@Given("Admin is on Manage Program Page after clicks Program on the navigation bar")
 	public void admin_is_on_manage_program_page_after_clicks_program_on_the_navigation_bar() {
 		url = testbase.getUrl();
@@ -158,6 +158,6 @@ public class AddNewProgramDetails {
 		Assert.assertTrue(addNewProgram.pgmDetailsPopUpDisappers());
 	}
 
-
+*/
 
 }

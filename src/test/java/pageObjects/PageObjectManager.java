@@ -22,16 +22,13 @@ public class PageObjectManager {
 	public AddNewBatchPages createNewBatch;
 	public AddNewUserPages addnewuser;
 
-        public SortingValidationPages sortingValidation;
-        public PaginationPages pagination;
-        public NavigationValidationPages navigationValidation;
-        public AddNewProgramDetailsPages addNewProgramDetails;
-        public DeleteProgramPages deleteProgram;
-        public MultipleDeleteProgramPages multipleDeleteProgram;
-        public EditProgramDetailsPages editProgramDetails;
-    	public DeleteUserPages deleteUser;
-
-	// public AddNewProgramDetailsPages addNewProgramDetails;
+	public SortingValidationPages sortingValidation;
+	public PaginationPages pagination;
+	public NavigationValidationPages navigationValidation;
+	public AddNewProgramDetailsPages addNewProgramDetails;
+	public DeleteProgramPages deleteProgram;
+	public MultipleDeleteProgramPages multipleDeleteProgram;
+	public EditProgramDetailsPages editProgramDetails;
 
 	public PageObjectManager(WebDriver driver) {
 		this.driver = driver;
@@ -103,41 +100,45 @@ public class PageObjectManager {
 		return assignStudentPage;
 	}
 
-
 	public AddNewProgramDetailsPages addNewProgramDetails() {
 		addNewProgramDetails = new AddNewProgramDetailsPages(driver);
 		return addNewProgramDetails;
 	}
+
 	public EditProgramDetailsPages editProgramDetails() {
 		editProgramDetails = new EditProgramDetailsPages(driver);
 		return editProgramDetails;
 	}
+
 	public DeleteProgramPages deleteProgram() {
 		deleteProgram = new DeleteProgramPages(driver);
 		return deleteProgram;
 	}
+
 	public MultipleDeleteProgramPages multipleDeleteProgram() {
-		 multipleDeleteProgram = new MultipleDeleteProgramPages(driver);
-		 return multipleDeleteProgram;
+		multipleDeleteProgram = new MultipleDeleteProgramPages(driver);
+		return multipleDeleteProgram;
 	}
-	
+
 	public SortingValidationPages sortingValidation() {
 		sortingValidation = new SortingValidationPages(driver);
 		return sortingValidation;
 	}
+
 	public PaginationPages pagination() {
 		pagination = new PaginationPages(driver);
 		return pagination;
 	}
+
 	public NavigationValidationPages navigationValidation() {
 		navigationValidation = new NavigationValidationPages(driver);
 		return navigationValidation;
 	}
-	public DeleteUserPages deleteUser() {
-		 deleteUser = new DeleteUserPages(driver);
-		 
-		 return deleteUser;
-	}
 
-
+	/*
+	 * public DeleteUserPages deleteUser() { deleteUser = new
+	 * DeleteUserPages(driver);
+	 * 
+	 * return deleteUser; }
+	 */
 }
