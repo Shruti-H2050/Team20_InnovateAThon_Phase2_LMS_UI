@@ -42,20 +42,15 @@ public class HomePagePages {
 		WebElement usernameElement = driver.findElement(usernameField);
 
 		usernameElement.sendKeys(username);
-		System.out.println("+++++Username" + username);
-
 		WebElement passwordElement = driver.findElement(passwordField);
 		passwordElement.sendKeys(password);
-		System.out.println("+++++Password: " + password);
 	}
 
 	public void clickloginButton() {
 		try {
 
 			WebElement login = driver.findElement(loginButton);
-			System.out.println("Clicking on the login element in the main page");
 			login.click();
-			System.out.println("++++++++Clicked on login button");
 		} catch (Exception e) {
 			System.err.println("Failed to click login button: " + e.getMessage());
 			e.printStackTrace();
