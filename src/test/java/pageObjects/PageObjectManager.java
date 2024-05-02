@@ -19,64 +19,79 @@ public class PageObjectManager {
 	public DeleteBatchPages deleteBatchPages;
 	public DeleteMultipleBatchesPages deleteMultipleBatchesPages;
 	public AssignStudentPages assignStudentPage;
-	//public AddNewProgramDetailsPages addNewProgramDetails;
+	public AddNewBatchPages createNewBatch;
+	public AddNewUserPages addnewuser;
+
+	// public AddNewProgramDetailsPages addNewProgramDetails;
 
 	public PageObjectManager(WebDriver driver) {
 		this.driver = driver;
 	}
-	
-   public HomePagePages gethomepage() {
-	   m_homepage=new HomePagePages(driver);
+
+	public HomePagePages gethomepage() {
+		m_homepage = new HomePagePages(driver);
 		return m_homepage;
-		
-   }
-   
-   public DashboardPages getdashboard() {
-	   m_dashboard=new DashboardPages(driver);
+
+	}
+
+	public DashboardPages getdashboard() {
+		m_dashboard = new DashboardPages(driver);
 		return m_dashboard;
-		
-   }
+
+	}
+
 	public AddNewProgramPages createNewPgm() {
 		addNewProgramPages = new AddNewProgramPages(driver);
-		
+
 		return addNewProgramPages;
-}
-	
+	}
+
+	public AddNewBatchPages createNewBatch() {
+		createNewBatch = new AddNewBatchPages(driver);
+
+		return createNewBatch;
+	}
+
+	public AddNewUserPages addnewuser() {
+		addnewuser = new AddNewUserPages(driver);
+
+		return addnewuser;
+	}
+
 	public ManageProgramValidationPages manageProgram() {
 		manageProgram = new ManageProgramValidationPages(driver);
 		return manageProgram;
-		
+
 	}
+
 	public BatchPageValidationPages batchpageval() {
 		batchPageValidationPages = new BatchPageValidationPages(driver);
-		return batchPageValidationPages;		
-}
-	
-	public AddNewProgramPages addNewProgram() {
-		 addNewProgram = new AddNewProgramPages(driver);
-		 return addNewProgram;
+		return batchPageValidationPages;
 	}
+
+	public AddNewProgramPages addNewProgram() {
+		addNewProgram = new AddNewProgramPages(driver);
+		return addNewProgram;
+	}
+
 	public EditBatchPages editbatchpage() {
 		editBatchPages = new EditBatchPages(driver);
-		return editBatchPages;		
-}
+		return editBatchPages;
+	}
+
 	public DeleteBatchPages deletebatch() {
 		deleteBatchPages = new DeleteBatchPages(driver);
-		return deleteBatchPages;		
-}
+		return deleteBatchPages;
+	}
+
 	public DeleteMultipleBatchesPages deletemultiplebatches() {
 		deleteMultipleBatchesPages = new DeleteMultipleBatchesPages(driver);
-		return deleteMultipleBatchesPages;		
-}
-	
+		return deleteMultipleBatchesPages;
+	}
+
 	public AssignStudentPages assignStudentPage() {
 		assignStudentPage = new AssignStudentPages(driver);
-		return assignStudentPage;		
-}
-	
-	
-	
-	
-	
+		return assignStudentPage;
+	}
 
 }

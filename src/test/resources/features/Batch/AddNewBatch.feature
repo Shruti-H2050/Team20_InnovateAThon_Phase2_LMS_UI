@@ -1,11 +1,14 @@
-Feature files:
 
 Feature: Add New Batch Validation
 
   Background: 
-    Given Logged into the LMS portal
-    When  Admin is on dashboard page after Login and Admin clicks "Batch" from navigation bar.
-    Then  Admin clicks "A New Batch" button.
+    Given Admin is in Home Page
+    When Admin enter valid credentials username and password and clicks login button
+    Then Admin should land on dashboard page
+    When Admin clicks "Batch" from navigation bar.
+    And  Admin clicks "A New Batch" button.
+    
+    
 
   @ANB_001
   Scenario: Check if the fields are exists in popup
@@ -37,7 +40,7 @@ Feature: Add New Batch Validation
   Scenario: Check for error messages for invalid data
     Given A new pop up with Batch details appears.
     And Reads data from excel by using "<sheetName>" and <rowNumber> to fill fields with negative data
-    When any of the fields have invalid values
+    #When any of the fields have invalid values
     Then Error message should appear
     Examples:
       | sheetName | rowNumber |
@@ -47,7 +50,7 @@ Feature: Add New Batch Validation
   Scenario: Check for error messages for mandatory fields
     Given A new pop up with Batch details appears.
     And Reads data from excel by using "<sheetName>" and <rowNumber> to check missing values in mandatory fields 
-    When Any of the mandatory fields are blank
+    #When Any of the mandatory fields are blank
     Then Error message should appear
     Examples:
       | sheetName | rowNumber |

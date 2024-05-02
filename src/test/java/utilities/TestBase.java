@@ -24,9 +24,7 @@ public class TestBase {
 		} catch (Exception e) {
 			System.out.println("Exception" + e.getMessage());
 		}
-		System.out.println("TestBase called ........................");
 		WebDriverManager();
-
 	}
 
 	public String getUsername() {
@@ -78,7 +76,6 @@ public class TestBase {
 
 	public void quitDriver() {
 		if (driver != null) {
-			System.out.println("quitDriver called ........................");
 			driver.quit();
 			driver = null; // Set driver to null after quitting to prevent reuse
 		}
