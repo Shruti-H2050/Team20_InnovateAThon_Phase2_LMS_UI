@@ -1,12 +1,17 @@
 package pageObjects;
-
 import org.openqa.selenium.WebDriver;
-
 import utilities.TestContextSetup;
-
 public class PageObjectManager {
-
 	public WebDriver driver;
+	public AddNewUserPages  addnewuserPages;
+	public AddNewProgramPages addNewProgramPages;
+	public AddNewBatchPages addNewBatchPages;
+	public BatchPageValidationPages batchPageValidationPages;
+	public EditBatchPages editBatchPages;
+	public LoginPages loginPage;
+	public DeleteBatchPages deleteBatchPages;
+	public DeleteMultipleBatchesPages deleteMultipleBatchesPages;
+	public PageObjectManager(WebDriver driver)
 	public TestContextSetup testContextSetup;
 	public LoginPages loginPage;
 	public AddNewProgramPages addNewProgramPages;
@@ -30,8 +35,35 @@ public class PageObjectManager {
 
 	public PageObjectManager(WebDriver driver) {
 		this.driver = driver;
+}
+	public LoginPages getlogin() {
+		loginPage=new LoginPages(driver);
+		return loginPage;	
 	}
-	
+	public BatchPageValidationPages batchpageval() {
+		batchPageValidationPages = new BatchPageValidationPages(driver);
+		return batchPageValidationPages;		
+}
+	public AddNewBatchPages createNewBatch() {
+		addNewBatchPages = new AddNewBatchPages(driver);
+		return addNewBatchPages;		
+}
+	public EditBatchPages editbatchpage() {
+		editBatchPages = new EditBatchPages(driver);
+		return editBatchPages;		
+}
+	public DeleteBatchPages deletebatch() {
+		deleteBatchPages = new DeleteBatchPages(driver);
+		return deleteBatchPages;		
+}
+	public DeleteMultipleBatchesPages deletemultiplebatches() {
+		deleteMultipleBatchesPages = new DeleteMultipleBatchesPages(driver);
+		return deleteMultipleBatchesPages;		
+}
+	public AddNewUserPages addnewuser() {
+		addnewuserPages=new AddNewUserPages(driver);
+		return addnewuserPages;	
+	}	
 	public LoginPages getlogin() {
 		loginPage=new LoginPages(driver);
 		return loginPage;

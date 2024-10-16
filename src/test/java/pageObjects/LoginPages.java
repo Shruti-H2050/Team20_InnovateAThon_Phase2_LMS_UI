@@ -30,4 +30,7 @@ public class LoginPages {
         WebElement loginButton = driver.findElement(By.xpath("//button[@id='login']"));
         loginButton.click();
     }
+
+}
+=======
 }
